@@ -1,0 +1,2942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripZGeo Travel</title>
+        <link rel="icon" type="image/png" href="images/favicon.png">
+
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+
+    <nav class="navbar">
+
+        <!-- Logo -->
+        <div class="logo">
+
+            <a href="#">
+                <img src="images/logo.png" alt="TripZGeo Travel">
+            </a>
+
+        </div>
+
+
+        <!-- Navigation -->
+        <ul class="nav-links">
+
+            <li>
+                <a href="#" class="active">Home</a>
+            </li>
+
+            <li>
+                <a href="#">Packages</a>
+            </li>
+
+            <li>
+                <a href="#">Hotels</a>
+            </li>
+
+            <li>
+                <a href="#">Flights</a>
+            </li>
+
+            <li>
+                <a href="#">Taxi</a>
+            </li>
+
+            <li>
+                <a href="#">Contact</a>
+            </li>
+
+        </ul>
+
+
+        <!-- Button -->
+        <div class="nav-right">
+
+            <button class="book-btn">
+                Book Now
+            </button>
+
+        </div>
+
+
+        <!-- Mobile Menu -->
+        <button class="menu-toggle">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+
+    </nav>
+
+
+</header>
+
+
+<!-- =========================
+     HERO SECTION
+========================= -->
+
+<section class="tripz-hero">
+
+
+    <div class="tripz-hero-content">
+
+
+        <!-- Hero Text -->
+
+        <h1>
+            Explore The World With
+            <br>
+            TripZGeo Travel
+        </h1>
+
+
+        <p>
+            Book Domestic & International Tour Packages, Hotels, Flights &
+            Taxi at Best Prices.
+        </p>
+
+
+
+        <!-- Hero Buttons -->
+
+        <div class="tripz-hero-btn">
+
+
+            <a href="#packages" class="tripz-explore-btn">
+                Explore Tours
+            </a>
+
+
+            <a href="#contact" class="tripz-contact-btn">
+                Contact Us
+            </a>
+
+
+        </div>
+
+
+
+
+
+        <!-- Travel Inquiry Box -->
+
+        <div class="tripz-inquiry-box">
+
+
+            <h2>
+                Plan Your Dream Trip
+            </h2>
+
+
+            <p>
+                Share your travel requirements and our experts will create
+                the perfect holiday package for you.
+            </p>
+
+
+
+
+            <!-- Inquiry Form -->
+
+            <form class="tripz-travel-form" id="tripzTravelForm">
+
+
+                <!-- Destination -->
+
+                <div class="tripz-form-group">
+
+                    <label>
+                        Destination
+                    </label>
+
+
+                    <select required name="destination">
+
+
+                        <option value="">
+                            Select Destination
+                        </option>
+
+
+                        <optgroup label="Domestic Trips">
+
+                            <option>
+                                Kedarnath Yatra
+                            </option>
+
+
+                            <option>
+                                Kedarnath & Badrinath Yatra
+                            </option>
+
+
+                            <option>
+                                Chardham Yatra
+                            </option>
+
+
+                            <option>
+                                Manali & Kasol
+                            </option>
+
+
+                            <option>
+                                Goa
+                            </option>
+
+
+                            <option>
+                                Other Domestic Trip
+                            </option>
+
+
+                        </optgroup>
+
+
+
+
+                        <optgroup label="International Trips">
+
+
+                            <option>
+                                Thailand
+                            </option>
+
+
+                            <option>
+                                Bali
+                            </option>
+
+
+                            <option>
+                                Vietnam
+                            </option>
+
+
+                            <option>
+                                Other International Trip
+                            </option>
+
+
+                        </optgroup>
+
+
+                    </select>
+
+
+                </div>
+
+
+
+
+
+
+                <!-- Travellers -->
+
+                <div class="tripz-form-group">
+
+
+                    <label>
+                        Travellers
+                    </label>
+
+
+                    <select required name="travellers">
+
+
+                        <option value="">
+                            Number of Travellers
+                        </option>
+
+
+                        <option>
+                            1 - 2 Pax
+                        </option>
+
+
+                        <option>
+                            3 - 5 Pax
+                        </option>
+
+
+                        <option>
+                            6 - 10 Pax
+                        </option>
+
+
+                        <option>
+                            10+ Pax
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+
+
+
+
+                <!-- Date -->
+
+                <div class="tripz-form-group">
+
+
+                    <label>
+                        Travel Date
+                    </label>
+
+
+                    <input 
+                    type="date"
+                    name="date"
+                    required>
+
+
+                </div>
+
+
+
+
+
+
+                <!-- Name -->
+
+                <div class="tripz-form-group">
+
+
+                    <label>
+                        Name
+                    </label>
+
+
+                    <input 
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    required>
+
+
+                </div>
+
+
+
+
+
+
+
+                <!-- Mobile -->
+
+                <div class="tripz-form-group">
+
+
+                    <label>
+                        Mobile Number
+                    </label>
+
+
+                    <input 
+                    type="tel"
+                    name="mobile"
+                    placeholder="Mobile Number"
+                    maxlength="10"
+                    required>
+
+
+                </div>
+
+
+
+
+
+
+                <!-- Submit -->
+
+
+                <button 
+                class="tripz-inquiry-btn"
+                type="submit">
+
+                    Send Inquiry
+
+                </button>
+
+
+
+
+            </form>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+</section>
+<!-- ================= POPULAR DESTINATIONS ================= -->
+
+<section class="destinations">
+
+    <div class="section-title">
+
+        <h2>Popular Destinations</h2>
+
+        <p>
+            Discover India's most loved destinations and top international tours.
+        </p>
+
+    </div>
+
+
+    <div class="swiper destinationSwiper">
+
+        <div class="swiper-wrapper">
+
+
+            <!-- Kedarnath -->
+
+            <div class="swiper-slide">
+
+                <article class="destination-card">
+
+                    <img src="images/kedarnath.jpg" alt="Kedarnath Temple Uttarakhand">
+
+                    <div class="card-content">
+
+                        <h3>Kedarnath</h3>
+
+                        <p>
+                            Experience the divine beauty of Lord Shiva's temple surrounded by the Himalayas.
+                        </p>
+
+                        <span class="location">
+                            📍 Uttarakhand, India
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- Badrinath -->
+
+            <div class="swiper-slide">
+
+                <article class="destination-card">
+
+                    <img src="images/badrinath.png" alt="Badrinath Temple Uttarakhand">
+
+                    <div class="card-content">
+
+                        <h3>Badrinath</h3>
+
+                        <p>
+                            Visit the holy shrine of Lord Vishnu with breathtaking mountain views.
+                        </p>
+
+                        <span class="location">
+                            📍 Uttarakhand, India
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- Char Dham -->
+
+            <div class="swiper-slide">
+
+                <article class="destination-card">
+
+                    <img src="images/chardham.png" alt="Char Dham Yatra">
+
+                    <div class="card-content">
+
+                        <h3>Char Dham Yatra</h3>
+
+                        <p>
+                            Complete the sacred Char Dham Yatra with comfort and premium services.
+                        </p>
+
+                        <span class="location">
+                            📍 Uttarakhand, India
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- Kashmir -->
+
+            <div class="swiper-slide">
+
+                <article class="destination-card">
+
+                    <img src="images/kashmir.png" alt="Kashmir Valley">
+
+                    <div class="card-content">
+
+                        <h3>Kashmir</h3>
+
+                        <p>
+                            Discover the paradise on earth with lakes, valleys and snow-covered mountains.
+                        </p>
+
+                        <span class="location">
+                            📍 Jammu & Kashmir
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- Manali Kasol -->
+
+            <div class="swiper-slide">
+
+                <article class="destination-card">
+
+                    <img src="images/manali.png" alt="Manali Kasol Himachal Pradesh">
+
+                    <div class="card-content">
+
+                        <h3>Manali & Kasol</h3>
+
+                        <p>
+                            Adventure, snow, rivers and unforgettable Himalayan experiences.
+                        </p>
+
+                        <span class="location">
+                            📍 Himachal Pradesh
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- Thailand -->
+
+            <div class="swiper-slide">
+
+                <article class="destination-card">
+
+                    <img src="images/thailand.png" alt="Thailand Beach Destination">
+
+                    <div class="card-content">
+
+                        <h3>Thailand</h3>
+
+                        <p>
+                            Enjoy tropical beaches, nightlife, luxury resorts and island adventures.
+                        </p>
+
+                        <span class="location">
+                            📍 Thailand
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- Pagination -->
+
+        <div class="swiper-pagination"></div>
+
+
+        <!-- Navigation -->
+
+        <div class="swiper-button-next"></div>
+
+        <div class="swiper-button-prev"></div>
+
+
+    </div>
+
+
+</section>
+<!-- ================= Domestic Tour Packages ================= -->
+
+<section class="packages">
+
+
+    <div class="section-title">
+
+        <h2>Domestic Tour Packages</h2>
+
+        <p>
+            Explore India's most popular destinations with our carefully designed travel packages.
+        </p>
+
+    </div>
+
+
+
+    <div class="package-container">
+
+
+
+        <!-- ================= PACKAGE 1 ================= -->
+
+
+        <div class="package-card reveal-card">
+
+
+            <img 
+            src="images/kedarnath-package.png" 
+            alt="Kedarnath Package"
+            loading="lazy">
+
+
+            <div class="package-content">
+
+
+                <span class="days">
+                    3 Nights / 4 Days
+                </span>
+
+
+                <h3>
+                    Kedarnath Yatra
+                </h3>
+
+
+                <p>
+                    Haridwar • Guptkashi • Kedarnath • Rishikesh
+                </p>
+
+
+
+                <div class="package-features">
+
+
+                    <span>🏨 Hotel</span>
+
+                    <span>🍽 Meals</span>
+
+                    <span>🚖 Transport</span>
+
+
+                </div>
+
+
+
+                <div class="price-row">
+
+
+                    <div class="price-box">
+
+
+                        <span class="starting-text">
+                            Starting
+                        </span>
+
+
+                        <h4>
+                            ₹9,999
+                            <small>/ Person</small>
+                        </h4>
+
+
+                    </div>
+
+
+
+                    <div class="rating">
+                        ★★★★★
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="package-btn">
+
+
+                    <button class="details-btn"
+                    data-package="Kedarnath Yatra">
+                        View Details
+                    </button>
+
+
+                    <button class="book-btn-package"
+                    data-package="Kedarnath Yatra">
+                        Book Now
+                    </button>
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+        <!-- ================= PACKAGE 2 ================= -->
+
+
+        <div class="package-card reveal-card">
+
+
+            <img 
+            src="images/badrinath-package.png" 
+            alt="Kedarnath Badrinath Package"
+            loading="lazy">
+
+
+
+            <div class="package-content">
+
+
+                <span class="days">
+                    4 Nights / 5 Days
+                </span>
+
+
+
+                <h3>
+                    Kedarnath & Badrinath
+                </h3>
+
+
+
+                <p>
+                    Haridwar • Kedarnath • Joshimath • Badrinath
+                </p>
+
+
+
+
+                <div class="package-features">
+
+
+                    <span>🏨 Hotel</span>
+
+                    <span>🍽 Meals</span>
+
+                    <span>🚖 Transport</span>
+
+
+                </div>
+
+
+
+
+                <div class="price-row">
+
+
+                    <div class="price-box">
+
+
+                        <span class="starting-text">
+                            Starting
+                        </span>
+
+
+
+                        <h4>
+                            ₹13,999
+                            <small>/ Person</small>
+                        </h4>
+
+
+                    </div>
+
+
+
+
+                    <div class="rating">
+                        ★★★★★
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="package-btn">
+
+
+                    <button class="details-btn"
+    data-package="Kedarnath & Badrinath">
+        View Details
+    </button>
+
+
+    <button class="book-btn-package"
+    data-package="Kedarnath & Badrinath">
+        Book Now
+    </button>
+
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- ================= PACKAGE 3 ================= -->
+
+
+
+        <div class="package-card reveal-card">
+
+
+            <img 
+            src="images/chardham-package.png" 
+            alt="Char Dham Package"
+            loading="lazy">
+
+
+
+            <div class="package-content">
+
+
+                <span class="days">
+                    8 Nights / 9 Days
+                </span>
+
+
+
+
+                <h3>
+                    Char Dham Yatra
+                </h3>
+
+
+
+
+                <p>
+                    Yamunotri • Gangotri • Kedarnath • Badrinath
+                </p>
+
+
+
+
+                <div class="package-features">
+
+
+                    <span>🏨 Hotel</span>
+
+                    <span>🍽 Meals</span>
+
+                    <span>🚖 Transport</span>
+
+
+                </div>
+
+
+
+
+
+                <div class="price-row">
+
+
+                    <div class="price-box">
+
+
+                        <span class="starting-text">
+                            Starting
+                        </span>
+
+
+
+                        <h4>
+                            ₹24,999
+                            <small>/ Person</small>
+                        </h4>
+
+
+                    </div>
+
+
+
+
+
+                    <div class="rating">
+                        ★★★★★
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+
+
+<div class="package-btn">
+
+
+    <button class="details-btn"
+    data-package="Char Dham Yatra">
+        View Details
+    </button>
+
+
+    <button class="book-btn-package"
+    data-package="Char Dham Yatra">
+        Book Now
+    </button>
+
+
+</div>
+
+
+
+
+
+            </div>
+
+
+        </div>
+                <!-- ================= PACKAGE 4 ================= -->
+
+
+        <div class="package-card reveal-card">
+
+
+            <img 
+            src="images/manali-kasol-package.png" 
+            alt="Manali Kasol Package"
+            loading="lazy">
+
+
+
+            <div class="package-content">
+
+
+                <span class="days">
+                    5 Nights / 6 Days
+                </span>
+
+
+
+                <h3>
+                    Manali & Kasol
+                </h3>
+
+
+
+                <p>
+                    Manali • Solang Valley • Kasol • Kullu
+                </p>
+
+
+
+
+                <div class="package-features">
+
+
+                    <span>🏨 Hotel</span>
+
+                    <span>🍽 Meals</span>
+
+                    <span>🚖 Transport</span>
+
+
+                </div>
+
+
+
+
+                <div class="price-row">
+
+
+                    <div class="price-box">
+
+
+                        <span class="starting-text">
+                            Starting
+                        </span>
+
+
+
+                        <h4>
+                            ₹6,999
+                            <small>/ Person</small>
+                        </h4>
+
+
+                    </div>
+
+
+
+                    <div class="rating">
+                        ★★★★★
+                    </div>
+
+
+                </div>
+
+
+
+
+
+                <div class="package-btn">
+
+
+    <button class="details-btn"
+    data-package="Manali & Kasol">
+        View Details
+    </button>
+
+
+    <button class="book-btn-package"
+    data-package="Manali & Kasol">
+        Book Now
+    </button>
+
+
+</div>
+
+
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- ================= PACKAGE 5 ================= -->
+
+
+        <div class="package-card reveal-card">
+
+
+            <img 
+            src="images/kashmir-package.png" 
+            alt="Kashmir Package"
+            loading="lazy">
+
+
+
+            <div class="package-content">
+
+
+                <span class="days">
+                    5 Nights / 6 Days
+                </span>
+
+
+
+                <h3>
+                    Kashmir Tour
+                </h3>
+
+
+
+                <p>
+                    Srinagar • Gulmarg • Pahalgam • Sonmarg
+                </p>
+
+
+
+
+                <div class="package-features">
+
+
+                    <span>🏨 Hotel</span>
+
+                    <span>🍽 Meals</span>
+
+                    <span>🚖 Transport</span>
+
+
+                </div>
+
+
+
+
+
+                <div class="price-row">
+
+
+                    <div class="price-box">
+
+
+                        <span class="starting-text">
+                            Starting
+                        </span>
+
+
+
+                        <h4>
+                            ₹14,999
+                            <small>/ Person</small>
+                        </h4>
+
+
+                    </div>
+
+
+
+
+
+                    <div class="rating">
+                        ★★★★★
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+                <div class="package-btn">
+
+
+    <button class="details-btn"
+    data-package="Kashmir Tour">
+        View Details
+    </button>
+
+
+    <button class="book-btn-package"
+    data-package="Kashmir Tour">
+        Book Now
+    </button>
+
+
+</div>
+
+
+
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <!-- ================= PACKAGE 6 ================= -->
+
+
+        <div class="package-card reveal-card">
+
+
+            <img 
+            src="images/goa-package.png" 
+            alt="Goa Package"
+            loading="lazy">
+
+
+
+            <div class="package-content">
+
+
+                <span class="days">
+                    4 Nights / 5 Days
+                </span>
+
+
+
+                <h3>
+                    Goa Tour
+                </h3>
+
+
+
+                <p>
+                    North Goa • South Goa • Beaches • Cruise
+                </p>
+
+
+
+
+                <div class="package-features">
+
+
+                    <span>🏨 Hotel</span>
+
+                    <span>🍽 Meals</span>
+
+                    <span>🚖 Transport</span>
+
+
+                </div>
+
+
+
+
+
+                <div class="price-row">
+
+
+                    <div class="price-box">
+
+
+                        <span class="starting-text">
+                            Starting
+                        </span>
+
+
+
+                        <h4>
+                            ₹12,999
+                            <small>/ Person</small>
+                        </h4>
+
+
+                    </div>
+
+
+
+
+
+                    <div class="rating">
+                        ★★★★★
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+                <div class="package-btn">
+
+
+    <button class="details-btn"
+    data-package="Goa Tour">
+        View Details
+    </button>
+
+
+    <button class="book-btn-package"
+    data-package="Goa Tour">
+        Book Now
+    </button>
+
+
+</div>
+
+
+
+
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+</section>
+
+<!-- ==========================================
+INTERNATIONAL TOUR PACKAGES
+========================================== -->
+
+<section class="international-packages">
+
+    <div class="section-title">
+
+        <h2>
+            Explore International Destinations
+        </h2>
+
+        <p>
+            Choose your dream international holiday with premium hotels,
+            sightseeing and unforgettable experiences.
+        </p>
+
+    </div>
+
+
+
+    <div class="international-container">
+
+
+
+        <!-- ================= LEFT SIDE ================= -->
+
+        <div class="world-map reveal-card">
+
+            <img
+                src="images/international-image.jpg"
+                alt="Explore International Destinations"
+                loading="lazy">
+
+            <div class="map-content">
+
+                <h3>
+                    Explore The World With TripZGeo
+                </h3>
+
+                <p>
+                    Discover handpicked international destinations with premium
+                    stays, exciting sightseeing and seamless travel experiences.
+                </p>
+
+                <button class="explore-world-btn">
+                    Explore All Tours
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <!-- ================= RIGHT SIDE ================= -->
+
+        <div class="country-list">
+
+
+
+            <!-- ================= BANGKOK & PATTAYA ================= -->
+
+            <div class="country-card reveal-card">
+
+                <img
+                    src="images/bangkok-pattaya.png"
+                    alt="Bangkok & Pattaya Tour"
+                    loading="lazy">
+
+                <div class="country-content">
+
+                    <h3>
+                        Bangkok & Pattaya
+                    </h3>
+
+                    <p>
+                        5 Nights / 6 Days • Thailand
+                    </p>
+
+                    <div class="package-highlights">
+
+                        <span>🏝 Coral Island</span>
+                        <span>🎭 Alcazar Show</span>
+                        <span>🚤 City Tour</span>
+
+                    </div>
+
+                    <div class="country-features">
+
+                        <span>🏨 Hotel</span>
+                        <span>🍽 Meals</span>
+                        <span>📸 Sightseeing</span>
+
+                    </div>
+
+                    <div class="country-bottom">
+
+                        <h4>
+
+                            <span class="starting-text">
+                                Starting
+                            </span>
+
+                            ₹21,999
+
+                            <small>/ Person</small>
+
+                        </h4>
+
+                        <button
+                            class="explore-btn"
+                            data-package="Bangkok & Pattaya">
+                            Explore
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+            <!-- ================= PHUKET & KRABI ================= -->
+
+            <div class="country-card reveal-card">
+
+                <img
+                    src="images/phuket-krabi.png"
+                    alt="Phuket & Krabi Tour"
+                    loading="lazy">
+
+                <div class="country-content">
+
+                    <h3>
+                        Phuket & Krabi With Full Moon Party
+                    </h3>
+
+                    <p>
+                        6 Nights / 7 Days • Thailand
+                    </p>
+
+                    <div class="package-highlights">
+
+                        <span>🏝 Phi Phi Island</span>
+                        <span>🌕 Full Moon Party</span>
+                        <span>🚤 Island Tour</span>
+
+                    </div>
+
+                    <div class="country-features">
+
+                        <span>🏨 Hotel</span>
+                        <span>🍽 Meals</span>
+                        <span>📸 Sightseeing</span>
+
+                    </div>
+
+                    <div class="country-bottom">
+
+                        <h4>
+
+                            <span class="starting-text">
+                                Starting
+                            </span>
+
+                            ₹38,999
+
+                            <small>/ Person</small>
+
+                        </h4>
+
+                        <button
+                            class="explore-btn"
+                            data-package="Phuket & Krabi With Full Moon Party">
+                            Explore
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+                        <!-- ================= BALI ================= -->
+
+            <div class="country-card reveal-card">
+
+                <img
+                    src="images/bali.png"
+                    alt="Bali Holiday Package"
+                    loading="lazy">
+
+                <div class="country-content">
+
+                    <h3>
+                        Bali Holiday Package
+                    </h3>
+
+                    <p>
+                        5 Nights / 6 Days • Indonesia
+                    </p>
+
+                    <div class="package-highlights">
+
+                        <span>🏝 Nusa Penida</span>
+                        <span>🌋 Mount Batur</span>
+                        <span>🌊 Water Activities</span>
+
+                    </div>
+
+                    <div class="country-features">
+
+                        <span>🏨 Hotel</span>
+                        <span>🍽 Meals</span>
+                        <span>📸 Sightseeing</span>
+
+                    </div>
+
+                    <div class="country-bottom">
+
+                        <h4>
+
+                            <span class="starting-text">
+                                Starting
+                            </span>
+
+                            ₹39,999
+
+                            <small>/ Person</small>
+
+                        </h4>
+
+                        <button
+                            class="explore-btn"
+                            data-package="Bali Holiday Package">
+                            Explore
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+
+            <!-- ================= VIETNAM ================= -->
+
+            <div class="country-card reveal-card">
+
+                <img
+                    src="images/vietnam.png"
+                    alt="Vietnam Holiday Package"
+                    loading="lazy">
+
+                <div class="country-content">
+
+                    <h3>
+                        Vietnam Holiday Package
+                    </h3>
+
+                    <p>
+                        5 Nights / 6 Days • Vietnam
+                    </p>
+
+                    <div class="package-highlights">
+
+                        <span>🌉 Golden Bridge</span>
+                        <span>🚢 Halong Bay</span>
+                        <span>🏙 City Tour</span>
+
+                    </div>
+
+                    <div class="country-features">
+
+                        <span>🏨 Hotel</span>
+                        <span>🍽 Meals</span>
+                        <span>📸 Sightseeing</span>
+
+                    </div>
+
+                    <div class="country-bottom">
+
+                        <h4>
+
+                            <span class="starting-text">
+                                Starting
+                            </span>
+
+                            ₹31,999
+
+                            <small>/ Person</small>
+
+                        </h4>
+
+                        <button
+                            class="explore-btn"
+                            data-package="Vietnam Holiday Package">
+                            Explore
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Why Choose TripZGeo -->
+
+<section class="why-choose">
+
+
+    <div class="section-title">
+
+        <h2>
+            Why Choose TripZGeo?
+        </h2>
+
+        <p>
+            We make your journeys comfortable, affordable and memorable with trusted travel solutions.
+        </p>
+
+    </div>
+
+
+
+    <div class="choose-container">
+
+
+
+        <!-- Card 1 -->
+
+        <div class="choose-card reveal-card">
+
+            <div class="icon">
+                💰
+            </div>
+
+            <h3>
+                Best Price Guarantee
+            </h3>
+
+            <p>
+                Enjoy budget-friendly travel packages with transparent pricing and no hidden charges.
+            </p>
+
+        </div>
+
+
+
+
+
+        <!-- Card 2 -->
+
+
+        <div class="choose-card reveal-card">
+
+            <div class="icon">
+                🛡️
+            </div>
+
+            <h3>
+                Trusted Travel Partner
+            </h3>
+
+            <p>
+                Plan your holidays with experienced travel experts and reliable services.
+            </p>
+
+        </div>
+
+
+
+
+
+        <!-- Card 3 -->
+
+
+        <div class="choose-card reveal-card">
+
+            <div class="icon">
+                🎧
+            </div>
+
+            <h3>
+                24×7 Travel Support
+            </h3>
+
+            <p>
+                Our dedicated support team is always available before, during and after your trip.
+            </p>
+
+        </div>
+
+
+
+
+
+        <!-- Card 4 -->
+
+
+        <div class="choose-card reveal-card">
+
+            <div class="icon">
+                💳
+            </div>
+
+            <h3>
+                Secure Payments
+            </h3>
+
+            <p>
+                Make safe and secure payments with trusted booking processes.
+            </p>
+
+        </div>
+
+
+
+
+
+        <!-- Card 5 -->
+
+
+        <div class="choose-card reveal-card">
+
+            <div class="icon">
+                🏨
+            </div>
+
+            <h3>
+                Premium Hotels & Stays
+            </h3>
+
+            <p>
+                Stay at carefully selected hotels and resorts for a comfortable experience.
+            </p>
+
+        </div>
+
+
+
+
+
+        <!-- Card 6 -->
+
+
+        <div class="choose-card reveal-card">
+
+            <div class="icon">
+                🚌
+            </div>
+
+            <h3>
+                Smooth Travel Experience
+            </h3>
+
+            <p>
+                From transfers to sightseeing, we arrange everything for a hassle-free journey.
+            </p>
+
+        </div>
+
+
+
+
+    </div>
+
+
+</section>
+
+<!-- =========================
+OUR SERVICES
+========================= -->
+
+
+<section class="services">
+
+
+    <div class="section-title">
+
+        <h2>
+            Our Travel Services
+        </h2>
+
+        <p>
+            Complete travel solutions designed to make your journey smooth, comfortable and memorable.
+        </p>
+
+    </div>
+
+
+
+
+    <div class="services-container">
+
+
+
+        <!-- Flight -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                ✈️
+            </div>
+
+            <h3>
+                Flight Booking
+            </h3>
+
+            <p>
+                Book domestic and international flights with the best deals and hassle-free assistance.
+            </p>
+
+        </div>
+
+
+
+
+
+        <!-- Hotel -->
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🏨
+            </div>
+
+            <h3>
+                Hotel & Resort Booking
+            </h3>
+
+            <p>
+                Handpicked hotels, resorts and stays for a comfortable travel experience.
+            </p>
+
+        </div>
+
+
+
+
+
+        <!-- Taxi -->
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🚖
+            </div>
+
+            <h3>
+                Cab & Transfer Services
+            </h3>
+
+            <p>
+                Reliable airport transfers, local cabs and sightseeing transportation.
+            </p>
+
+        </div>
+
+
+
+
+
+        <!-- Visa -->
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🛂
+            </div>
+
+            <h3>
+                Visa Assistance
+            </h3>
+
+            <p>
+                Expert guidance for visa documentation and smooth international travel.
+            </p>
+
+        </div>
+
+
+
+
+
+        <!-- Bus -->
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🚌
+            </div>
+
+            <h3>
+                Bus Booking
+            </h3>
+
+            <p>
+                Comfortable bus bookings for groups, tours and long-distance journeys.
+            </p>
+
+        </div>
+
+
+
+
+
+        <!-- Cruise -->
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🚢
+            </div>
+
+            <h3>
+                Cruise Holidays
+            </h3>
+
+            <p>
+                Experience luxury cruise vacations with amazing onboard experiences.
+            </p>
+
+        </div>
+
+
+
+
+
+        <!-- Adventure -->
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🏕️
+            </div>
+
+            <h3>
+                Adventure Tours
+            </h3>
+
+            <p>
+                Explore trekking, camping and exciting adventure destinations.
+            </p>
+
+        </div>
+
+
+
+
+
+        <!-- Honeymoon -->
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                💍
+            </div>
+
+            <h3>
+                Honeymoon Packages
+            </h3>
+
+            <p>
+                Romantic getaways specially planned for unforgettable couple moments.
+            </p>
+
+        </div>
+
+
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================
+CUSTOMER REVIEWS
+========================= -->
+
+<section class="testimonials">
+
+
+    <div class="section-title">
+
+        <h2>
+            What Our Travelers Say
+        </h2>
+
+        <p>
+            Real experiences from travelers who explored amazing destinations with TripZGeo.
+        </p>
+
+    </div>
+
+
+
+
+    <div class="testimonial-container">
+
+
+
+        <!-- Review 1 -->
+
+
+        <div class="testimonial-card reveal-card">
+
+
+            <img src="images/customer1.jpg" alt="Customer" loading="lazy">
+
+
+            <h3>
+                Rahul Sharma
+            </h3>
+
+
+            <span>
+                Kedarnath & Badrinath Yatra
+            </span>
+
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+
+            <p>
+                Our 2 Dham journey was perfectly planned by TripZGeo.
+                Hotels, transport and complete travel support were excellent.
+                A truly memorable experience.
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- Review 2 -->
+
+
+        <div class="testimonial-card reveal-card">
+
+
+            <img src="images/customer2.jpg" alt="Customer" loading="lazy">
+
+
+            <h3>
+                Priya Verma
+            </h3>
+
+
+            <span>
+                Kedarnath Yatra
+            </span>
+
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+
+            <p>
+                Amazing Kedarnath experience with TripZGeo.
+                Everything from hotel booking to sightseeing was managed smoothly.
+                Highly recommended for domestic trips.
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <!-- Review 3 -->
+
+
+        <div class="testimonial-card reveal-card">
+
+
+            <img src="images/customer3.jpg" alt="Customer" loading="lazy">
+
+
+            <h3>
+                Amit Singh
+            </h3>
+
+
+            <span>
+                Chardham Yatra
+            </span>
+
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+
+            <p>
+                Great service, affordable pricing and quick support.
+                TripZGeo made our Chardham holiday comfortable and stress-free.
+            </p>
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+</section>
+
+<!-- =========================
+FAQ SECTION
+========================= -->
+
+<section class="faq">
+
+
+    <div class="section-title">
+
+        <h2>
+            Frequently Asked Questions
+        </h2>
+
+        <p>
+            Get answers to common questions about our travel packages, bookings and services.
+        </p>
+
+    </div>
+
+
+
+
+    <div class="faq-container">
+
+
+
+        <details class="reveal-card">
+
+            <summary>
+                How can I book a tour package with TripZGeo?
+            </summary>
+
+
+            <p>
+                You can book your favourite tour package by contacting our travel experts,
+                requesting a quote, or choosing from our available domestic and international packages.
+            </p>
+
+
+        </details>
+
+
+
+
+
+
+
+        <details class="reveal-card">
+
+            <summary>
+                Do you provide customized travel packages?
+            </summary>
+
+
+            <p>
+                Yes, we create customized holiday packages according to your destination,
+                budget, travel dates and personal requirements.
+            </p>
+
+
+        </details>
+
+
+
+
+
+
+
+        <details class="reveal-card">
+
+            <summary>
+                Are flights included in tour package prices?
+            </summary>
+
+
+            <p>
+                Flight inclusion depends on the selected package.
+                We provide both flight-inclusive and land-only travel packages.
+            </p>
+
+
+        </details>
+
+
+
+
+
+
+
+        <details class="reveal-card">
+
+            <summary>
+                Do you provide hotel and transportation services?
+            </summary>
+
+
+            <p>
+                Yes, TripZGeo provides hotel bookings, airport transfers,
+                local transportation, sightseeing and complete travel assistance.
+            </p>
+
+
+        </details>
+
+
+
+
+
+
+
+        <details class="reveal-card">
+
+            <summary>
+                Can I cancel or modify my booking?
+            </summary>
+
+
+            <p>
+                Cancellation and modification policies depend on the selected package,
+                hotel policies and travel service providers.
+            </p>
+
+
+        </details>
+
+
+
+
+
+
+
+        <details class="reveal-card">
+
+            <summary>
+                Do you provide visa assistance for international tours?
+            </summary>
+
+
+            <p>
+                Yes, we provide guidance for visa documentation and application support
+                for selected international destinations.
+            </p>
+
+
+        </details>
+
+
+
+
+    </div>
+
+
+
+</section>
+
+
+<!-- =========================
+CALL TO ACTION
+========================= -->
+
+<section class="cta">
+
+
+    <div class="cta-content reveal-card">
+
+
+        <div class="cta-tag">
+
+            ✈️ Start Your Journey Today
+
+        </div>
+
+
+
+
+        <h2>
+            Ready For Your Next Adventure?
+        </h2>
+
+
+
+
+        <p>
+            Discover breathtaking destinations, unforgettable experiences
+            and exclusive travel deals with TripZGeo Travel.
+            Let our experts help you plan your perfect holiday.
+        </p>
+
+
+
+
+        <div class="cta-buttons">
+
+
+            <a href="#" class="cta-btn primary-btn">
+
+                Explore Packages
+
+            </a>
+
+
+
+
+            <a href="#" class="cta-btn secondary-btn">
+
+                Contact Our Experts
+
+            </a>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+</section>
+
+<!-- =========================
+CONTACT US
+========================= -->
+
+<section class="contact">
+
+
+    <div class="section-title">
+
+        <h2>
+            Contact Us
+        </h2>
+
+        <p>
+            We're here to help you plan your next unforgettable journey.
+        </p>
+
+    </div>
+
+
+
+
+    <div class="contact-wrapper">
+
+
+
+        <!-- MAIN CONTACT CARD -->
+
+
+        <div class="contact-container reveal-card">
+
+
+
+            <!-- LEFT SIDE -->
+
+
+            <div class="contact-info">
+
+
+                <h3>
+                    Get In Touch
+                </h3>
+
+
+                <p>
+                    Have questions about our tour packages?
+                    Our travel experts are ready to assist you
+                    with customized holidays and travel planning.
+                </p>
+
+
+
+
+                <div class="info-box">
+
+                    <h4>
+                        📍 Office Address
+                    </h4>
+
+                    <p>
+                        New Delhi, India
+                    </p>
+
+                </div>
+
+
+
+
+
+                <div class="info-box">
+
+                    <h4>
+                        📞 Phone
+                    </h4>
+
+                    <p>
+                        +91 8708797121, 8398941172
+                    </p>
+
+                </div>
+
+
+
+
+
+                <div class="info-box">
+
+                    <h4>
+                        📧 Email
+                    </h4>
+
+                    <p>
+                        info@tripzgeo.com
+                    </p>
+
+                </div>
+
+
+
+
+
+                <div class="info-box">
+
+                    <h4>
+                        🕒 Office Hours
+                    </h4>
+
+                    <p>
+                        Monday - Saturday : 9:00 AM - 7:00 PM
+                    </p>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <!-- RIGHT SIDE -->
+
+
+            <div class="contact-form">
+
+
+                <h3>
+                    Send Us A Message
+                </h3>
+
+
+                <p>
+                    Fill the form and our travel expert will contact you shortly.
+                </p>
+
+
+
+
+
+                <form id="contactForm">
+
+
+
+                    <input 
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Full Name"
+                    required>
+
+
+
+
+
+                    <input 
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Email Address"
+                    required>
+
+
+
+
+
+                    <input 
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Phone Number"
+                    required>
+
+
+
+
+
+                    <input 
+                    type="text"
+                    id="destination"
+                    name="destination"
+                    placeholder="Destination"
+                    required>
+
+
+
+
+
+                    <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    placeholder="Write your message..."
+                    required></textarea>
+
+
+
+
+
+                    <button type="submit">
+
+                        Send Message
+
+                    </button>
+
+
+
+
+                </form>
+
+
+
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+</section>
+
+<!-- =========================
+FOOTER
+========================= -->
+
+
+<footer class="footer reveal-card">
+
+
+    <div class="footer-container">
+
+
+        <!-- Company -->
+
+
+        <div class="footer-box company-box">
+
+
+            <h2>
+                TripZGeo Travel
+            </h2>
+
+
+            <p>
+                Your trusted travel partner for domestic and international holidays.
+                Discover unforgettable journeys with customized tour packages,
+                hotels, flights and transportation services.
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+        <!-- Quick Links -->
+
+
+        <div class="footer-box">
+
+
+            <h3>
+                Quick Links
+            </h3>
+
+
+            <ul>
+
+
+                <li>
+                    <a href="#">
+                        Home
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        About Us
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        Domestic Tours
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        International Tours
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        Contact Us
+                    </a>
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- Our Services -->
+
+
+        <div class="footer-box">
+
+
+            <h3>
+                Our Services
+            </h3>
+
+
+            <ul>
+
+
+                <li>
+                    <a href="#">
+                        Tour Packages
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        Flight Booking
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        Hotel Booking
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        Visa Assistance
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#">
+                        Taxi & Transfers
+                    </a>
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- Contact -->
+
+
+        <div class="footer-box">
+
+
+            <h3>
+                Contact Info
+            </h3>
+
+
+            <ul class="contact-list">
+
+
+                <li>
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    New Delhi, India
+
+                </li>
+
+
+
+                <li>
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    +91 8708797121
+
+                </li>
+
+
+
+                <li>
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    info@tripzgeo.com
+
+                </li>
+
+
+
+                <li>
+
+                    <i class="fa-regular fa-clock"></i>
+
+                    Mon – Sat | 9:00 AM – 7:00 PM
+
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+    <hr>
+
+
+
+
+
+    <div class="footer-bottom">
+
+
+        <p>
+
+            © 2026 <strong>TripZGeo Travel</strong>. All Rights Reserved.
+
+        </p>
+
+
+
+
+
+        <div class="social-links">
+
+
+            <a href="#" aria-label="Instagram">
+
+                <i class="fa-brands fa-instagram"></i>
+
+            </a>
+
+
+
+            <a href="#" aria-label="Facebook">
+
+                <i class="fa-brands fa-facebook-f"></i>
+
+            </a>
+
+
+
+            <a href="#" aria-label="WhatsApp">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+            </a>
+
+
+
+            <a href="#" aria-label="LinkedIn">
+
+                <i class="fa-brands fa-linkedin-in"></i>
+
+            </a>
+
+
+
+            <a href="#" aria-label="YouTube">
+
+                <i class="fa-brands fa-youtube"></i>
+
+            </a>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script src="./js/script.js"></script>
+
+<script>
+const swiper = new Swiper(".destinationSwiper",{
+
+loop:true,
+
+spaceBetween:30,
+
+autoplay:{
+delay:3000,
+disableOnInteraction:false,
+},
+
+navigation:{
+nextEl:".swiper-button-next",
+prevEl:".swiper-button-prev",
+},
+
+pagination:{
+el:".swiper-pagination",
+clickable:true,
+},
+
+slidesPerView:3,
+
+});
+</script>
+
+</body>
+</html>
