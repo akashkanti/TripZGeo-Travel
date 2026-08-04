@@ -26,74 +26,79 @@
     <nav class="navbar">
 
         <!-- Logo -->
+
         <div class="logo">
 
-            <a href="#">
+            <a href="#home">
+
                 <img src="images/logo.png" alt="TripZGeo Travel">
+
             </a>
 
         </div>
 
 
+
         <!-- Navigation -->
+
         <ul class="nav-links">
 
             <li>
-                <a href="#" class="active">Home</a>
+                <a href="#home" class="active">Home</a>
             </li>
 
             <li>
-                <a href="#">Packages</a>
+                <a href="#packages">Packages</a>
+            </li>
+
+            
+            <li>
+                <a href="#international">International</a>
             </li>
 
             <li>
-                <a href="#">Hotels</a>
+                <a href="#services">Services</a>
             </li>
 
             <li>
-                <a href="#">Flights</a>
-            </li>
-
-            <li>
-                <a href="#">Taxi</a>
-            </li>
-
-            <li>
-                <a href="#">Contact</a>
+                <a href="#contact">Contact</a>
             </li>
 
         </ul>
 
 
+
         <!-- Button -->
+
         <div class="nav-right">
 
-            <button class="book-btn">
+            <button class="book-btn" id="navbarBookBtn">
+
                 Book Now
+
             </button>
 
         </div>
 
 
-        <!-- Mobile Menu -->
+
+        <!-- Mobile -->
+
         <button class="menu-toggle">
 
             <i class="fa-solid fa-bars"></i>
 
         </button>
 
-
     </nav>
 
-
 </header>
-
 
 <!-- =========================
      HERO SECTION
 ========================= -->
 
-<section class="tripz-hero">
+<section class="tripz-hero" id="home">
 
 
     <div class="tripz-hero-content">
@@ -355,12 +360,13 @@
                     </label>
 
 
-                    <input 
-                    type="tel"
-                    name="mobile"
-                    placeholder="Mobile Number"
-                    maxlength="10"
-                    required>
+                   <input 
+type="tel"
+name="mobile"
+placeholder="Mobile Number"
+maxlength="10"
+pattern="[0-9]{10}"
+required>
 
 
                 </div>
@@ -373,13 +379,23 @@
                 <!-- Submit -->
 
 
-                <button 
-                class="tripz-inquiry-btn"
-                type="submit">
+<button 
+class="tripz-inquiry-btn"
+type="submit">
 
-                    Send Inquiry
+    Send Inquiry
 
-                </button>
+</button>
+
+<!-- Success Message -->
+
+
+<div class="tripz-form-success" id="tripzFormSuccess">
+
+    Thank you! Your inquiry has been submitted.
+    Our travel expert will contact you shortly.
+
+</div>
 
 
 
@@ -606,7 +622,7 @@
 </section>
 <!-- ================= Domestic Tour Packages ================= -->
 
-<section class="packages">
+<section class="packages" id="packages">
 
 
     <div class="section-title">
@@ -1324,7 +1340,7 @@
 INTERNATIONAL TOUR PACKAGES
 ========================================== -->
 
-<section class="international-packages">
+<section class="international-packages" id="international">
 
     <div class="section-title">
 
@@ -1811,7 +1827,7 @@ OUR SERVICES
 ========================= -->
 
 
-<section class="services">
+<section class="services" id="services">
 
 
     <div class="section-title">
@@ -2390,7 +2406,7 @@ CALL TO ACTION
 CONTACT US
 ========================= -->
 
-<section class="contact">
+<section class="contact" id ="contact">
 
 
     <div class="section-title">

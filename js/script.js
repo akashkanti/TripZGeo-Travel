@@ -9,8 +9,9 @@
 
 
 // =======================================
-// MOBILE NAVBAR
+// MOBILE NAVBAR + BOOK NOW
 // =======================================
+
 
 
 const menuToggle = document.querySelector(".menu-toggle");
@@ -21,9 +22,15 @@ const navIcon = document.querySelector(".menu-toggle i");
 
 const navItems = document.querySelectorAll(".nav-links a");
 
+const navbarBookBtn = document.getElementById("navbarBookBtn");
 
 
-// Check elements exist
+
+
+// =======================================
+// MOBILE MENU
+// =======================================
+
 
 if(menuToggle && navLinks){
 
@@ -31,7 +38,7 @@ if(menuToggle && navLinks){
 
     // OPEN / CLOSE MENU
 
-    menuToggle.addEventListener("click", (e)=>{
+    menuToggle.addEventListener("click",(e)=>{
 
 
         e.stopPropagation();
@@ -41,14 +48,13 @@ if(menuToggle && navLinks){
 
 
 
-        // Icon Change
-
         if(navLinks.classList.contains("active")){
 
 
             navIcon.classList.remove("fa-bars");
 
             navIcon.classList.add("fa-xmark");
+
 
             menuToggle.setAttribute(
                 "aria-label",
@@ -75,13 +81,15 @@ if(menuToggle && navLinks){
         }
 
 
-
     });
 
 
 
 
-    // CLOSE AFTER CLICK LINK
+
+
+    // CLOSE MENU AFTER CLICK LINK
+
 
     navItems.forEach((item)=>{
 
@@ -100,13 +108,15 @@ if(menuToggle && navLinks){
         });
 
 
-
     });
 
 
 
 
-    // CLICK OUTSIDE MENU CLOSE
+
+
+
+    // CLICK OUTSIDE CLOSE
 
 
     document.addEventListener("click",(e)=>{
@@ -137,6 +147,9 @@ if(menuToggle && navLinks){
 
 
 
+
+
+
     // ESC KEY CLOSE
 
 
@@ -162,7 +175,11 @@ if(menuToggle && navLinks){
 
 
 
-    // RESET ON DESKTOP
+
+
+
+
+    // RESET DESKTOP
 
 
     window.addEventListener("resize",()=>{
@@ -188,200 +205,234 @@ if(menuToggle && navLinks){
 
 }
 
+
+
+
+
+
+
+
+// =======================================
+// NAVBAR BOOK NOW WHATSAPP
+// =======================================
+
+
+
+if(navbarBookBtn){
+
+
+    navbarBookBtn.addEventListener("click",()=>{
+
+
+
+        const phoneNumber = "918398941172";
+        // yaha apna WhatsApp number add karna
+
+
+const message = `Hello TripZGeo Travel!
+
+I am interested in booking a tour package.
+
+Please share the best available packages, pricing, itinerary, and current offers.
+
+Looking forward to hearing from your team.
+
+Thank you!`; 
+
+const whatsappURL = 
+`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+window.open(
+    whatsappURL,
+    "_blank"
+);
+    });
+
+
+}
+
+
 /*========================================
- HERO INQUIRY FORM
+ HERO BUTTONS + INQUIRY FORM
 ========================================*/
 
 
+// =======================================
+// SMOOTH SCROLL BUTTONS
+// =======================================
+
+
+const exploreBtn = document.querySelector(".tripz-explore-btn");
+
+const contactBtn = document.querySelector(".tripz-contact-btn");
+
+
+
+if(exploreBtn){
+
+
+    exploreBtn.addEventListener("click",(e)=>{
+
+
+        e.preventDefault();
+
+
+        document.querySelector("#packages")
+        .scrollIntoView({
+
+            behavior:"smooth"
+
+        });
+
+
+    });
+
+
+}
+
+
+
+if(contactBtn){
+
+
+    contactBtn.addEventListener("click",(e)=>{
+
+
+        e.preventDefault();
+
+
+        document.querySelector("#contact")
+        .scrollIntoView({
+
+            behavior:"smooth"
+
+        });
+
+
+    });
+
+
+}
+
+
+
+
+
+// =======================================
+// HERO INQUIRY FORM
+// =======================================
+
+const scriptURL = "https://script.google.com/macros/s/AKfycbwJMtTqVu582pq11WtY2GGWLNfdLYiILWGN3kjCldLyIkyLe-DlBOKKYCkzcYbXPbx1/exec";
+
 const tripzForm = document.getElementById("tripzTravelForm");
 
+const tripzSuccess = document.getElementById("tripzFormSuccess");
 
-if(tripzForm){
+if (tripzForm) {
 
+    tripzForm.addEventListener("submit", (e) => {
 
-tripzForm.addEventListener("submit", function(e){
+        e.preventDefault();
 
+        const destination = tripzForm.querySelector(
+            "select[name='destination']"
+        ).value;
 
-e.preventDefault();
+        const travellers = tripzForm.querySelector(
+            "select[name='travellers']"
+        ).value;
 
+        const date = tripzForm.querySelector(
+            "input[name='date']"
+        ).value;
 
+        const name = tripzForm.querySelector(
+            "input[name='name']"
+        ).value.trim();
 
-const destination = tripzForm.querySelector(
-"select[name='destination']"
-).value;
+        const mobile = tripzForm.querySelector(
+            "input[name='mobile']"
+        ).value.trim();
 
 
-const travellers = tripzForm.querySelector(
-"select[name='travellers']"
-).value;
+        // VALIDATION
 
+        if (
+            destination === "" ||
+            travellers === "" ||
+            date === "" ||
+            name === "" ||
+            mobile === ""
+        ) {
 
-const date = tripzForm.querySelector(
-"input[name='date']"
-).value;
+            alert("Please fill all details.");
+            return;
 
+        }
 
-const name = tripzForm.querySelector(
-"input[name='name']"
-).value.trim();
+        if (!/^[0-9]{10}$/.test(mobile)) {
 
-
-const mobile = tripzForm.querySelector(
-"input[name='mobile']"
-).value.trim();
-
-
-
-
-
-// Validation
-
-
-if(
-destination === "" ||
-travellers === "" ||
-date === "" ||
-name === "" ||
-mobile === ""
-){
-
-alert("Please fill all details.");
-
-return;
-
-}
-
-
-
-
-
-if(!/^[0-9]{10}$/.test(mobile)){
-
-
-alert("Please enter valid 10 digit mobile number.");
-
-return;
-
-
-}
-
-
-
-
-
-// Success Message
-
-
-alert(
-`Thank you ${name}! 
-Your travel inquiry has been received.
-Our team will contact you soon.`
-);
-
-
-
-tripzForm.reset();
-
-
-
-});
-
-
-}
-
-const destinationSwiper = new Swiper(".destinationSwiper", {
-
-    loop: true,
-
-    spaceBetween: 25,
-
-    grabCursor: true,
-
-
-    autoplay: {
-
-        delay: 3000,
-
-        disableOnInteraction: false,
-
-    },
-
-
-    pagination: {
-
-        el: ".swiper-pagination",
-
-        clickable: true,
-
-    },
-
-
-    navigation: {
-
-        nextEl: ".swiper-button-next",
-
-        prevEl: ".swiper-button-prev",
-
-    },
-
-
-    breakpoints: {
-
-
-        // Mobile
-        0: {
-
-            slidesPerView: 1,
-
-            spaceBetween: 15,
-
-        },
-
-
-        // Large Mobile
-        576: {
-
-            slidesPerView: 1.2,
-
-            spaceBetween: 20,
-
-        },
-
-
-        // Tablet
-        768: {
-
-            slidesPerView: 2,
-
-            spaceBetween: 20,
-
-        },
-
-
-        // Laptop
-        992: {
-
-            slidesPerView: 3,
-
-            spaceBetween: 25,
-
-        },
-
-
-        // Large Desktop
-        1400: {
-
-            slidesPerView: 3,
-
-            spaceBetween: 30,
+            alert("Please enter valid 10 digit mobile number.");
+            return;
 
         }
 
 
-    }
+        // SEND DATA TO GOOGLE SHEETS
 
+        fetch(scriptURL, {
 
-});
+            method: "POST",
+
+          
+
+            body: JSON.stringify({
+
+                name: name,
+                contact: mobile,
+                travellers: travellers,
+                travelDate: date,
+                destination: destination
+
+            })
+
+        })
+
+        .then((response) => response.json())
+
+        .then((data) => {
+
+            if (tripzSuccess) {
+
+                tripzSuccess.style.display = "block";
+
+            }
+
+            tripzForm.reset();
+
+            setTimeout(() => {
+
+                if (tripzSuccess) {
+
+                    tripzSuccess.style.display = "none";
+
+                }
+
+            }, 5000);
+
+        })
+
+        .catch((error) => {
+
+            console.error(error);
+
+            alert("Something went wrong. Please try again.");
+
+        });
+
+    });
+
+}
 
 /* ==========================================
 DOMESTIC PACKAGE JAVASCRIPT
