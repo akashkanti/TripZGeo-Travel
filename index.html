@@ -334,12 +334,12 @@
                         Name
                     </label>
 
-
-                    <input 
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    required>
+<input
+    type="text"
+    name="name"
+    placeholder="Your Name"
+    autocomplete="name"
+    required>
 
 
                 </div>
@@ -360,14 +360,15 @@
                     </label>
 
 
-                   <input 
-type="tel"
-name="mobile"
-placeholder="Mobile Number"
-maxlength="10"
-pattern="[0-9]{10}"
-required>
-
+      <input
+    type="tel"
+    name="mobile"
+    placeholder="Mobile Number"
+    maxlength="10"
+    pattern="[0-9]{10}"
+    inputmode="numeric"
+    autocomplete="tel"
+    required>
 
                 </div>
 
@@ -387,19 +388,6 @@ type="submit">
 
 </button>
 
-<!-- Success Message -->
-
-
-<div class="tripz-form-success" id="tripzFormSuccess">
-
-    Thank you! Your inquiry has been submitted.
-    Our travel expert will contact you shortly.
-
-</div>
-
-
-
-
             </form>
 
 
@@ -413,6 +401,8 @@ type="submit">
 
 
 </section>
+
+
 <!-- ================= POPULAR DESTINATIONS ================= -->
 
 <section class="destinations">
@@ -620,6 +610,8 @@ type="submit">
 
 
 </section>
+
+
 <!-- ================= Domestic Tour Packages ================= -->
 
 <section class="packages" id="packages">
@@ -2548,46 +2540,47 @@ CONTACT US
                 <form id="contactForm">
 
 
-
-                    <input 
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Full Name"
-                    required>
-
-
-
-
-
-                    <input 
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Email Address"
-                    required>
+<input
+type="text"
+id="name"
+name="name"
+placeholder="Full Name"
+autocomplete="name"
+required>
 
 
 
 
-
-                    <input 
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder="Phone Number"
-                    required>
-
-
+<input
+type="email"
+id="email"
+name="email"
+placeholder="Email Address"
+autocomplete="email"
+required>
 
 
+<input
+type="tel"
+id="phone"
+name="phone"
+placeholder="Phone Number"
+maxlength="10"
+pattern="[0-9]{10}"
+inputmode="numeric"
+autocomplete="tel"
+required
+oninput="this.value=this.value.replace(/[^0-9]/g,'')">
 
-                    <input 
-                    type="text"
-                    id="destination"
-                    name="destination"
-                    placeholder="Destination"
-                    required>
+
+
+<input
+type="text"
+id="destination"
+name="destination"
+placeholder="Preferred Destination"
+autocomplete="off"
+required>
 
 
 
@@ -2603,13 +2596,13 @@ CONTACT US
 
 
 
+<button
+type="submit"
+id="contactSubmitBtn">
 
-                    <button type="submit">
+    Send Message
 
-                        Send Message
-
-                    </button>
-
+</button>
 
 
 
@@ -2631,10 +2624,10 @@ CONTACT US
 
 </section>
 
+
 <!-- =========================
 FOOTER
 ========================= -->
-
 
 <footer class="footer reveal-card">
 
@@ -2644,24 +2637,23 @@ FOOTER
 
         <!-- Company -->
 
-
         <div class="footer-box company-box">
 
 
-            <h2>
-                TripZGeo Travel
-            </h2>
+            <img
+            src="images/logo.png"
+            alt="TripZGeo Travel Logo"
+            class="footer-logo">
 
 
             <p>
                 Your trusted travel partner for domestic and international holidays.
-                Discover unforgettable journeys with customized tour packages,
-                hotels, flights and transportation services.
+                Explore unforgettable destinations with customized tour packages,
+                hotels, flights, and transportation services.
             </p>
 
 
         </div>
-
 
 
 
@@ -2682,35 +2674,35 @@ FOOTER
 
 
                 <li>
-                    <a href="#">
+                    <a href="#home">
                         Home
                     </a>
                 </li>
 
 
                 <li>
-                    <a href="#">
-                        About Us
-                    </a>
-                </li>
-
-
-                <li>
-                    <a href="#">
+                    <a href="#packages">
                         Domestic Tours
                     </a>
                 </li>
 
 
                 <li>
-                    <a href="#">
+                    <a href="#international">
                         International Tours
                     </a>
                 </li>
 
 
                 <li>
-                    <a href="#">
+                    <a href="#services">
+                        Services
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#contact">
                         Contact Us
                     </a>
                 </li>
@@ -2742,37 +2734,27 @@ FOOTER
 
 
                 <li>
-                    <a href="#">
-                        Tour Packages
-                    </a>
+                    Tour Packages
                 </li>
 
 
                 <li>
-                    <a href="#">
-                        Flight Booking
-                    </a>
+                    Flight Booking
                 </li>
 
 
                 <li>
-                    <a href="#">
-                        Hotel Booking
-                    </a>
+                    Hotel Booking
                 </li>
 
 
                 <li>
-                    <a href="#">
-                        Visa Assistance
-                    </a>
+                    Visa Assistance
                 </li>
 
 
                 <li>
-                    <a href="#">
-                        Taxi & Transfers
-                    </a>
+                    Taxi & Transfers
                 </li>
 
 
@@ -2805,9 +2787,12 @@ FOOTER
 
                     <i class="fa-solid fa-location-dot"></i>
 
-                    New Delhi, India
+                    <span>
+                        New Delhi, India
+                    </span>
 
                 </li>
+
 
 
 
@@ -2815,9 +2800,13 @@ FOOTER
 
                     <i class="fa-solid fa-phone"></i>
 
-                    +91 8708797121
+                    <span>
+                        +91 8708797121, 8398941172
+                    </span>
 
                 </li>
+
+
 
 
 
@@ -2825,9 +2814,13 @@ FOOTER
 
                     <i class="fa-solid fa-envelope"></i>
 
-                    info@tripzgeo.com
+                    <span>
+                        info@tripzgeo.com
+                    </span>
 
                 </li>
+
+
 
 
 
@@ -2835,7 +2828,9 @@ FOOTER
 
                     <i class="fa-regular fa-clock"></i>
 
-                    Mon – Sat | 9:00 AM – 7:00 PM
+                    <span>
+                        Mon – Sat | 9:00 AM – 7:00 PM
+                    </span>
 
                 </li>
 
@@ -2846,8 +2841,9 @@ FOOTER
         </div>
 
 
-
     </div>
+
+
 
 
 
@@ -2857,6 +2853,11 @@ FOOTER
 
 
 
+
+
+
+
+    <!-- Footer Bottom -->
 
 
     <div class="footer-bottom">
@@ -2872,10 +2873,18 @@ FOOTER
 
 
 
+
+        <!-- Social Links -->
+
+
         <div class="social-links">
 
 
-            <a href="#" aria-label="Instagram">
+            <a 
+            href="https://www.instagram.com/tripzgeo?igsh=dDltYThlMndlMG85"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram">
 
                 <i class="fa-brands fa-instagram"></i>
 
@@ -2883,7 +2892,13 @@ FOOTER
 
 
 
-            <a href="#" aria-label="Facebook">
+
+
+            <a 
+            href="https://www.facebook.com/profile.php?id=61592410089157"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook">
 
                 <i class="fa-brands fa-facebook-f"></i>
 
@@ -2891,7 +2906,13 @@ FOOTER
 
 
 
-            <a href="#" aria-label="WhatsApp">
+
+
+            <a 
+            href="https://wa.me/918398941172"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp">
 
                 <i class="fa-brands fa-whatsapp"></i>
 
@@ -2899,23 +2920,20 @@ FOOTER
 
 
 
-            <a href="#" aria-label="LinkedIn">
+
+
+            <a 
+            href="https://www.linkedin.com/in/tripzgeo-travel-3a6210428"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn">
 
                 <i class="fa-brands fa-linkedin-in"></i>
 
             </a>
 
 
-
-            <a href="#" aria-label="YouTube">
-
-                <i class="fa-brands fa-youtube"></i>
-
-            </a>
-
-
         </div>
-
 
 
     </div>
@@ -2925,31 +2943,58 @@ FOOTER
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Your JS -->
 <script src="./js/script.js"></script>
-
 <script>
-const swiper = new Swiper(".destinationSwiper",{
+const swiper = new Swiper(".destinationSwiper", {
 
-loop:true,
+    loop: true,
 
-spaceBetween:30,
+    spaceBetween: 30,
 
-autoplay:{
-delay:3000,
-disableOnInteraction:false,
-},
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
 
-navigation:{
-nextEl:".swiper-button-next",
-prevEl:".swiper-button-prev",
-},
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
 
-pagination:{
-el:".swiper-pagination",
-clickable:true,
-},
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
 
-slidesPerView:3,
+    slidesPerView: 3,
+
+    breakpoints: {
+
+        0: {
+            slidesPerView: 1.1,
+            spaceBetween: 15
+        },
+
+        480: {
+            slidesPerView: 1.2,
+            spaceBetween: 18
+        },
+
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 20
+        },
+
+        1024: {
+            slidesPerView: 3,
+            spaceBetween: 30
+        }
+
+    }
 
 });
 </script>

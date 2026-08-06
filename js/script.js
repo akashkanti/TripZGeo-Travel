@@ -317,7 +317,6 @@ if(contactBtn){
 
 
 
-
 // =======================================
 // HERO INQUIRY FORM
 // =======================================
@@ -326,37 +325,21 @@ const scriptURL = "https://script.google.com/macros/s/AKfycbwJMtTqVu582pq11WtY2G
 
 const tripzForm = document.getElementById("tripzTravelForm");
 
-const tripzSuccess = document.getElementById("tripzFormSuccess");
-
 if (tripzForm) {
+
+    const submitBtn = tripzForm.querySelector(".tripz-inquiry-btn");
 
     tripzForm.addEventListener("submit", (e) => {
 
         e.preventDefault();
 
-        const destination = tripzForm.querySelector(
-            "select[name='destination']"
-        ).value;
-
-        const travellers = tripzForm.querySelector(
-            "select[name='travellers']"
-        ).value;
-
-        const date = tripzForm.querySelector(
-            "input[name='date']"
-        ).value;
-
-        const name = tripzForm.querySelector(
-            "input[name='name']"
-        ).value.trim();
-
-        const mobile = tripzForm.querySelector(
-            "input[name='mobile']"
-        ).value.trim();
-
+        const destination = tripzForm.querySelector("select[name='destination']").value;
+        const travellers = tripzForm.querySelector("select[name='travellers']").value;
+        const date = tripzForm.querySelector("input[name='date']").value;
+        const name = tripzForm.querySelector("input[name='name']").value.trim();
+        const mobile = tripzForm.querySelector("input[name='mobile']").value.trim();
 
         // VALIDATION
-
         if (
             destination === "" ||
             travellers === "" ||
@@ -364,119 +347,111 @@ if (tripzForm) {
             name === "" ||
             mobile === ""
         ) {
-
-            alert("Please fill all details.");
+            Swal.fire({
+                icon: "warning",
+                title: "Incomplete Form",
+                text: "Please fill all details."
+            });
             return;
-
         }
 
         if (!/^[0-9]{10}$/.test(mobile)) {
-
-            alert("Please enter valid 10 digit mobile number.");
+            Swal.fire({
+                icon: "warning",
+                title: "Invalid Mobile Number",
+                text: "Please enter a valid 10-digit mobile number."
+            });
             return;
-
         }
 
+        // Button Loading
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = "Sending Inquiry...";
 
-        // SEND DATA TO GOOGLE SHEETS
-
+        // SEND DATA
         fetch(scriptURL, {
-
             method: "POST",
-
-          
-
             body: JSON.stringify({
-
                 name: name,
                 contact: mobile,
                 travellers: travellers,
                 travelDate: date,
                 destination: destination
-
             })
-
         })
-
         .then((response) => response.json())
-
         .then((data) => {
-
-            if (tripzSuccess) {
-
-                tripzSuccess.style.display = "block";
-
-            }
 
             tripzForm.reset();
 
-            setTimeout(() => {
-
-                if (tripzSuccess) {
-
-                    tripzSuccess.style.display = "none";
-
-                }
-
-            }, 5000);
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = "Send Inquiry";
+Swal.fire({
+    icon: "success",
+    title: "Inquiry Sent!",
+    text: "Our travel expert will contact you shortly.",
+    width: "280px",
+    padding: "1rem",
+    timer: 2200,
+    showConfirmButton: false,
+    timerProgressBar: true
+});
 
         })
-
         .catch((error) => {
 
             console.error(error);
 
-            alert("Something went wrong. Please try again.");
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = "Send Inquiry";
+
+            Swal.fire({
+                icon: "error",
+                title: "Oops!",
+                text: "Something went wrong. Please try again.",
+                confirmButtonText: "OK"
+            });
 
         });
 
     });
 
 }
-
 /* ==========================================
 DOMESTIC PACKAGE JAVASCRIPT
 ========================================== */
-
 
 
 // ===============================
 // BOOK NOW WHATSAPP
 // ===============================
 
-
 const bookButtons = document.querySelectorAll(".book-btn-package");
-
 
 bookButtons.forEach(button => {
 
-
     button.addEventListener("click",()=>{
-
 
         let packageName = button.dataset.package;
 
-
         let message = 
-        `Hello TripZGeo Travel,%0A%0AI want to book ${packageName} package.%0A%0APlease share more details.`;
+        `Hello TripZGeo Travel,
+I am interested in booking the ${packageName} package.
+Please share the complete details, pricing, availability, and inclusions.
+Thank you.`;
 
+        let encodedMessage = encodeURIComponent(message);
 
         let whatsappNumber = "918398941172";
 
-
         let whatsappURL = 
-        `https://wa.me/${whatsappNumber}?text=${message}`;
-
+        `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
         window.open(whatsappURL,"_blank");
 
-
     });
 
-
 });
-
-
 
 
 
@@ -975,136 +950,107 @@ ctaContent.forEach((item)=>{
 CONTACT FORM WHATSAPP MESSAGE
 =========================================*/
 
-
 const contactForm = document.getElementById("contactForm");
+const contactSubmitBtn = document.getElementById("contactSubmitBtn");
 
+if (contactForm) {
 
+    contactForm.addEventListener("submit", function (e) {
 
-contactForm.addEventListener("submit", function(e){
+        e.preventDefault();
 
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const destination = document.getElementById("destination").value.trim();
+        const message = document.getElementById("message").value.trim();
 
-    e.preventDefault();
+        // Mobile Validation
+        if (!/^[0-9]{10}$/.test(phone)) {
 
+            Swal.fire({
+                icon: "warning",
+                title: "Invalid Mobile Number",
+                text: "Please enter a valid 10-digit mobile number.",
+                timer: 2200,
+                showConfirmButton: false
+            });
 
+            return;
 
-    // GET FORM DATA
+        }
 
+        // Button Loading
+        contactSubmitBtn.disabled = true;
+        contactSubmitBtn.innerHTML = "Sending...";
 
-    const name = document.getElementById("name").value;
+        const whatsappNumber = "918398941172";
 
-    const email = document.getElementById("email").value;
-
-    const phone = document.getElementById("phone").value;
-
-    const destination = document.getElementById("destination").value;
-
-    const message = document.getElementById("message").value;
-
-
-
-
-
-    // YOUR WHATSAPP NUMBER
-
-    const whatsappNumber = "918398941172";
-
-
-
-
-
-    // MESSAGE FORMAT
-
-
-    const whatsappMessage = 
+        const whatsappMessage =
 `New Travel Inquiry - TripZGeo Travel
-
 Name: ${name}
-
-Email: ${email}
-
 Phone: ${phone}
-
+Email: ${email}
 Destination: ${destination}
+Message: ${message}`;
 
-Message:
-${message}`;
+        const whatsappURL =
+`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
+        window.open(whatsappURL, "_blank");
 
+        // Reset Form
+        contactForm.reset();
 
+        // Button Normal
+        contactSubmitBtn.disabled = false;
+        contactSubmitBtn.innerHTML = "Send Message";
 
+       
 
+    });
 
-    // ENCODE MESSAGE
-
-
-    const encodedMessage = encodeURIComponent(whatsappMessage);
-
-
-
-
-
-
-    // OPEN WHATSAPP
-
-
-    const whatsappURL = 
-    `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-
-
-
-
-    window.open(
-        whatsappURL,
-        "_blank"
-    );
-
-
-
-});
-
+}
+ 
 /*=========================================
 FOOTER SCROLL REVEAL
 =========================================*/
 
 
-const footer = document.querySelector(".footer.reveal-card");
-
+const footer = document.querySelector(".footer");
 
 
 if(footer){
 
 
-    const footerObserver = new IntersectionObserver(
-
-        (entries)=>{
+    const footerObserver = new IntersectionObserver((entries)=>{
 
 
-            entries.forEach((entry)=>{
+        entries.forEach((entry)=>{
 
 
-                if(entry.isIntersecting){
+            if(entry.isIntersecting){
 
 
-                    entry.target.classList.add("active");
+                entry.target.classList.add("active");
 
 
-                    footerObserver.unobserve(entry.target);
+                footerObserver.unobserve(entry.target);
 
 
-                }
+            }
 
 
-            });
+        });
 
 
-        },
+    },{
 
-        {
-            threshold:0.15
-        }
 
-    );
+        threshold:0.15
+
+
+    });
 
 
 
