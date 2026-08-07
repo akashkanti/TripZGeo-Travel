@@ -1551,26 +1551,102 @@ CONTENT
 
 }
 
-
-
-/*==================================================
-SWIPER BUTTON
-==================================================*/
-
+/*==================================================*
+*SWIPER BUTTON FINAL*
+*==================================================*/
 
 .swiper-button-next,
 .swiper-button-prev{
 
+    width:52px;
+    height:52px;
+
+    background:#ffffff;
+
     color:#052efa;
-    width:40px;
-    height:40px;
-    /* background:#ffffff; */
+
     border-radius:50%;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition:.3s ease;
+
+    outline:none;
+
+    -webkit-tap-highlight-color:transparent;
 
 }
 
 
+
+.swiper-button-next:after,
+.swiper-button-prev:after{
+
+    font-size:22px;
+    font-weight:900;
+
+}
+
+
+
+@media(hover:hover){
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover{
+
+    background:#0240fc;
+
+    color:#ffffff;
+
+    transform:scale(1.08);
+
+}
+
+}
+
+
+
+/* Mobile tap fix */
+
+.swiper-button-next:focus,
+.swiper-button-prev:focus,
+.swiper-button-next:active,
+.swiper-button-prev:active{
+
+    background:#ffffff;
+
+    color:#052efa;
+
+    outline:none;
+
+}
+
+
+
+
+@media(max-width:768px){
+
+.swiper-button-next,
+.swiper-button-prev{
+
+    width:45px;
+    height:45px;
+
+}
+
+
+.swiper-button-next:after,
+.swiper-button-prev:after{
+
+    font-size:19px;
+
+}
+
+}
 
 .swiper-button-next:after,
 .swiper-button-prev:after{
@@ -1580,15 +1656,6 @@ SWIPER BUTTON
 
 }
 
-
-
-.swiper-button-next:hover,
-.swiper-button-prev:hover{
-
-    background:#0240fc;
-    color:white;
-
-}
 
 
 
@@ -2952,6 +3019,191 @@ SAFE CARD ANIMATION
     .book-btn-package{
 
         font-size:13px;
+
+    }
+
+}
+
+
+
+/* ==================================================
+PACKAGE DETAILS MODAL
+================================================== */
+
+
+.package-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+    z-index:9999;
+
+}
+
+
+.package-modal.active{
+
+    display:flex;
+
+}
+
+
+
+.modal-box{
+
+    width:100%;
+
+    max-width:380px;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    position:relative;
+
+    text-align:center;
+
+    animation:modalShow .3s ease;
+
+}
+
+
+
+@keyframes modalShow{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.9);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+
+.modal-close{
+
+    position:absolute;
+
+    right:15px;
+
+    top:10px;
+
+    border:none;
+
+    background:none;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    color:#333;
+
+}
+
+
+
+.modal-box h3{
+
+    color:#000a31;
+
+    font-size:22px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.modal-info p{
+
+    background:#f5f8ff;
+
+    padding:10px;
+
+    border-radius:10px;
+
+    margin:8px 0;
+
+    font-size:14px;
+
+}
+
+
+
+.modal-text{
+
+    color:#666;
+
+    font-size:14px;
+
+    line-height:22px;
+
+    margin:20px 0;
+
+}
+
+
+
+.modal-btn{
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#0d6efd;
+
+    color:#fff;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+}
+
+
+
+@media(max-width:480px){
+
+
+    .modal-box{
+
+        padding:20px;
+
+    }
+
+
+    .modal-box h3{
+
+        font-size:20px;
 
     }
 

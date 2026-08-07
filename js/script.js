@@ -475,7 +475,6 @@ Thank you.`;
 
 
 
-
 /* ==========================================
 VIEW DETAILS POPUP
 ========================================== */
@@ -485,60 +484,82 @@ const detailsButtons =
 document.querySelectorAll(".details-btn");
 
 
-
-detailsButtons.forEach(button => {
-
-
-    button.addEventListener("click", () => {
+const modal =
+document.getElementById("packageModal");
 
 
-        const packageName =
-        button.dataset.package;
+const modalTitle =
+document.getElementById("modalTitle");
 
 
-
-        // Add blue clicked color
-
-        button.classList.add("clicked");
+const modalClose =
+document.getElementById("modalClose");
 
 
-
-        alert(
-`${packageName}
-
-Hotel Included
-Meals Included
-Transport Included
-
-Contact TripZGeo Travel for complete itinerary.`
-        );
+const modalOk =
+document.getElementById("modalOk");
 
 
 
-        // Remove color after popup close
-
-        setTimeout(() => {
+detailsButtons.forEach(button=>{
 
 
-            button.classList.remove("clicked");
+button.addEventListener("click",()=>{
 
 
-            button.blur();
+const packageName =
+button.dataset.package;
 
 
-        },100);
+modalTitle.innerText =
+packageName;
 
 
+modal.classList.add("active");
 
-    });
+
+});
 
 
 });
 
 
 
+function closeModal(){
+
+    modal.classList.remove("active");
+
+}
 
 
+
+modalClose.addEventListener(
+"click",
+closeModal
+);
+
+
+
+modalOk.addEventListener(
+"click",
+closeModal
+);
+
+
+
+modal.addEventListener(
+"click",
+(e)=>{
+
+
+if(e.target === modal){
+
+    closeModal();
+
+}
+
+
+});
 
 /* ==========================================
 SCROLL REVEAL ANIMATION
