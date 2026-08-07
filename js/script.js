@@ -417,122 +417,178 @@ Swal.fire({
     });
 
 }
+
+
 /* ==========================================
 DOMESTIC PACKAGE JAVASCRIPT
 ========================================== */
 
 
-// ===============================
-// BOOK NOW WHATSAPP
-// ===============================
+/* ==========================================
+BOOK NOW WHATSAPP
+========================================== */
 
 const bookButtons = document.querySelectorAll(".book-btn-package");
 
+
 bookButtons.forEach(button => {
 
-    button.addEventListener("click",()=>{
 
-        let packageName = button.dataset.package;
+    button.addEventListener("click", () => {
 
-        let message = 
-        `Hello TripZGeo Travel,
+
+        const packageName = button.dataset.package;
+
+
+        const message =
+`Hello TripZGeo Travel,
+
 I am interested in booking the ${packageName} package.
 Please share the complete details, pricing, availability, and inclusions.
+
 Thank you.`;
 
-        let encodedMessage = encodeURIComponent(message);
 
-        let whatsappNumber = "918398941172";
+        const encodedMessage =
+        encodeURIComponent(message);
 
-        let whatsappURL = 
+
+        const whatsappNumber =
+        "918398941172";
+
+
+        const whatsappURL =
         `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
-        window.open(whatsappURL,"_blank");
 
-    });
-
-});
-
-
-
-// ===============================
-// VIEW DETAILS POPUP
-// ===============================
-
-
-
-const detailsButtons = document.querySelectorAll(".details-btn");
-
-
-
-detailsButtons.forEach(button=>{
-
-
-    button.addEventListener("click",()=>{
-
-
-        let packageName = button.dataset.package;
-
-
-        alert(
-        `${packageName}\n\nHotel Included\nMeals Included\nTransport Included\n\nContact TripZGeo Travel for complete itinerary.`
+        window.open(
+            whatsappURL,
+            "_blank"
         );
 
 
     });
 
+});
+
+
+
+/* ==========================================
+VIEW DETAILS POPUP
+========================================== */
+
+const detailsButtons =
+document.querySelectorAll(".details-btn");
+
+
+detailsButtons.forEach(button => {
+
+
+    button.addEventListener("click", (event) => {
+
+
+        /*
+        Prevent default browser button behavior
+        */
+
+        event.preventDefault();
+
+
+        const packageName =
+        button.dataset.package;
+
+
+        alert(
+`${packageName}
+
+Hotel Included
+Meals Included
+Transport Included
+
+Contact TripZGeo Travel for complete itinerary.`
+        );
+
+
+        /*
+        Remove mobile focus after alert closes.
+        This fixes the button staying dark/focused
+        after tapping on mobile.
+        */
+
+        setTimeout(() => {
+
+            button.blur();
+
+        }, 50);
+
+
+    });
 
 });
 
 
 
+/* ==========================================
+SCROLL REVEAL ANIMATION
+========================================== */
+
+const cards =
+document.querySelectorAll(".reveal-card");
 
 
+if(cards.length){
 
-// ===============================
-// SCROLL REVEAL ANIMATION
-// ===============================
+    
+    const observer =
+    new IntersectionObserver(
 
-
-
-const cards = document.querySelectorAll(".reveal-card");
-
+        (entries) => {
 
 
-const observer = new IntersectionObserver((entries)=>{
+            entries.forEach(entry => {
 
 
-    entries.forEach(entry=>{
+                if(entry.isIntersecting){
 
 
-        if(entry.isIntersecting){
+                    entry.target.classList.add("show");
 
 
-            entry.target.classList.add("show");
+                    /*
+                    Stop observing after animation
+                    */
+
+                    observer.unobserve(
+                        entry.target
+                    );
 
 
+                }
+
+
+            });
+
+
+        },
+
+        {
+            threshold:0.2
         }
+
+    );
+
+
+    cards.forEach(card => {
+
+
+        observer.observe(card);
 
 
     });
 
 
-},
-{
-    threshold:0.2
-});
+}
 
-
-
-
-
-cards.forEach(card=>{
-
-
-    observer.observe(card);
-
-
-});
 
 
 /*=========================================
