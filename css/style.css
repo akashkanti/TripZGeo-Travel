@@ -1938,6 +1938,7 @@ PAGINATION
 
 }
 
+
 /* ==================================================
 DOMESTIC TOUR PACKAGES
 ================================================== */
@@ -1958,7 +1959,6 @@ DOMESTIC TOUR PACKAGES
 }
 
 
-
 /* ==================================================
 SECTION TITLE
 ================================================== */
@@ -1970,7 +1970,6 @@ SECTION TITLE
     margin-bottom:50px;
 
 }
-
 
 
 .section-title h2{
@@ -1986,7 +1985,6 @@ SECTION TITLE
     line-height:1.2;
 
 }
-
 
 
 .section-title p{
@@ -2055,11 +2053,6 @@ PACKAGE CARD
 }
 
 
-
-/* ==================================================
-CARD HOVER
-================================================== */
-
 .package-card:hover{
 
     transform:translateY(-8px);
@@ -2090,11 +2083,6 @@ IMAGE
 }
 
 
-
-/* ==================================================
-IMAGE HOVER
-================================================== */
-
 .package-card:hover img{
 
     transform:scale(1.05);
@@ -2120,7 +2108,6 @@ CONTENT
     box-sizing:border-box;
 
 }
-
 
 
 /* ==================================================
@@ -2172,7 +2159,7 @@ PACKAGE TITLE
 
 
 /* ==================================================
-PACKAGE DESCRIPTION
+DESCRIPTION
 ================================================== */
 
 .package-content p{
@@ -2214,7 +2201,6 @@ FEATURES
 }
 
 
-
 .package-features span{
 
     font-size:12px;
@@ -2226,8 +2212,6 @@ FEATURES
     white-space:nowrap;
 
 }
-
-
 
 /* ==================================================
 PRICE ROW
@@ -2248,7 +2232,6 @@ PRICE ROW
 }
 
 
-
 .starting-text{
 
     display:block;
@@ -2260,7 +2243,6 @@ PRICE ROW
     font-weight:600;
 
 }
-
 
 
 .price-row h4{
@@ -2278,7 +2260,6 @@ PRICE ROW
 }
 
 
-
 .price-row h4 small{
 
     font-size:13px;
@@ -2288,7 +2269,6 @@ PRICE ROW
     font-weight:600;
 
 }
-
 
 
 .rating{
@@ -2302,6 +2282,8 @@ PRICE ROW
     white-space:nowrap;
 
 }
+
+
 
 /* ==================================================
 BUTTON AREA
@@ -2320,7 +2302,7 @@ BUTTON AREA
 
 
 /* ==================================================
-PACKAGE BUTTONS
+ALL PACKAGE BUTTONS
 ================================================== */
 
 .details-btn,
@@ -2348,13 +2330,13 @@ PACKAGE BUTTONS
     border-color .25s ease,
     transform .15s ease;
 
-    -webkit-tap-highlight-color:transparent;
-
     outline:none;
 
     appearance:none;
 
     -webkit-appearance:none;
+
+    -webkit-tap-highlight-color:transparent;
 
 }
 
@@ -2375,24 +2357,37 @@ VIEW DETAILS BUTTON
 }
 
 
+/* Desktop hover */
 
-.details-btn:hover{
+@media (hover:hover){
 
-    background:#0d6efd;
+    .details-btn:hover{
 
-    color:#fff;
+        background:#0d6efd;
+
+        color:#fff;
+
+    }
 
 }
 
 
+/* Click active color */
 
-/* CLICK COLOR EFFECT */
-
-.details-btn:active{
+.details-btn.clicked{
 
     background:#0d6efd;
 
     color:#fff;
+
+    border-color:#0d6efd;
+
+}
+
+
+/* Tap effect */
+
+.details-btn:active{
 
     transform:scale(.97);
 
@@ -2400,7 +2395,8 @@ VIEW DETAILS BUTTON
 
 
 
-/* MOBILE FOCUS REMOVE */
+/* Remove mobile focus */
+
 .details-btn:focus{
 
     outline:none;
@@ -2408,11 +2404,6 @@ VIEW DETAILS BUTTON
 }
 
 
-.details-btn:focus-visible{
-
-    outline:2px solid rgba(13,110,253,.35);
-
-}
 
 /* ==================================================
 BOOK NOW BUTTON
@@ -2430,17 +2421,18 @@ BOOK NOW BUTTON
 
 
 
-.book-btn-package:hover{
+@media (hover:hover){
 
-    background:#004ecb;
+    .book-btn-package:hover{
 
-    border-color:#004ecb;
+        background:#004ecb;
+
+        border-color:#004ecb;
+
+    }
 
 }
 
-
-
-/* CLICK COLOR EFFECT */
 
 .book-btn-package:active{
 
@@ -2451,7 +2443,6 @@ BOOK NOW BUTTON
     transform:scale(.97);
 
 }
-
 
 
 .book-btn-package:focus{
@@ -2468,7 +2459,6 @@ MOBILE TAP FIX
 
 @media (hover:none){
 
-
     .details-btn:hover{
 
         background:#fff;
@@ -2476,7 +2466,6 @@ MOBILE TAP FIX
         color:#0d6efd;
 
     }
-
 
 
     .book-btn-package:hover{
@@ -2488,7 +2477,6 @@ MOBILE TAP FIX
         border-color:#0d6efd;
 
     }
-
 
 }
 
@@ -2502,7 +2490,6 @@ SAFE CARD ANIMATION
     cardShow .6s ease forwards;
 
 }
-
 
 
 @keyframes cardShow{
@@ -2534,6 +2521,7 @@ SAFE CARD ANIMATION
 
 @media(max-width:1200px){
 
+
     .packages{
 
         padding:70px 5%;
@@ -2563,6 +2551,7 @@ SAFE CARD ANIMATION
 ================================================== */
 
 @media(max-width:992px){
+
 
     .packages{
 
@@ -2616,6 +2605,7 @@ SAFE CARD ANIMATION
 ================================================== */
 
 @media(max-width:768px){
+
 
     .packages{
 
@@ -2746,6 +2736,7 @@ SAFE CARD ANIMATION
 ================================================== */
 
 @media(max-width:480px){
+
 
     .packages{
 
@@ -2891,10 +2882,11 @@ SAFE CARD ANIMATION
 
 
 /* ==================================================
-360px EXTRA SMALL MOBILE
+360px EXTRA SMALL
 ================================================== */
 
 @media(max-width:360px){
+
 
     .packages{
 
@@ -2964,8 +2956,6 @@ SAFE CARD ANIMATION
     }
 
 }
-
-
 
 
 /*=========================================

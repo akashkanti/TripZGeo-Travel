@@ -469,7 +469,10 @@ Thank you.`;
 
     });
 
+
 });
+
+
 
 
 
@@ -477,25 +480,27 @@ Thank you.`;
 VIEW DETAILS POPUP
 ========================================== */
 
+
 const detailsButtons =
 document.querySelectorAll(".details-btn");
+
 
 
 detailsButtons.forEach(button => {
 
 
-    button.addEventListener("click", (event) => {
-
-
-        /*
-        Prevent default browser button behavior
-        */
-
-        event.preventDefault();
+    button.addEventListener("click", () => {
 
 
         const packageName =
         button.dataset.package;
+
+
+
+        // Add blue clicked color
+
+        button.classList.add("clicked");
+
 
 
         alert(
@@ -509,22 +514,29 @@ Contact TripZGeo Travel for complete itinerary.`
         );
 
 
-        /*
-        Remove mobile focus after alert closes.
-        This fixes the button staying dark/focused
-        after tapping on mobile.
-        */
+
+        // Remove color after popup close
 
         setTimeout(() => {
 
+
+            button.classList.remove("clicked");
+
+
             button.blur();
 
-        }, 50);
+
+        },100);
+
 
 
     });
 
+
 });
+
+
+
 
 
 
@@ -532,15 +544,18 @@ Contact TripZGeo Travel for complete itinerary.`
 SCROLL REVEAL ANIMATION
 ========================================== */
 
+
 const cards =
 document.querySelectorAll(".reveal-card");
 
 
+
 if(cards.length){
 
-    
+
     const observer =
     new IntersectionObserver(
+
 
         (entries) => {
 
@@ -554,9 +569,6 @@ if(cards.length){
                     entry.target.classList.add("show");
 
 
-                    /*
-                    Stop observing after animation
-                    */
 
                     observer.unobserve(
                         entry.target
@@ -571,11 +583,14 @@ if(cards.length){
 
         },
 
+
         {
             threshold:0.2
         }
 
+
     );
+
 
 
     cards.forEach(card => {
