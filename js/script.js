@@ -216,20 +216,20 @@ if(menuToggle && navLinks){
 // NAVBAR BOOK NOW WHATSAPP
 // =======================================
 
+if (navbarBookBtn) {
 
+    navbarBookBtn.addEventListener("click", () => {
 
-if(navbarBookBtn){
-
-
-    navbarBookBtn.addEventListener("click",()=>{
-
-
+        if (typeof gtag === "function") {
+            gtag("event", "book_now_click", {
+                button_location: "navbar",
+                button_name: "Book Now"
+            });
+        }
 
         const phoneNumber = "918398941172";
-        // yaha apna WhatsApp number add karna
 
-
-const message = `Hello TripZGeo Travel!
+        const message = `Hello TripZGeo Travel!
 
 I am interested in booking a tour package.
 
@@ -237,84 +237,84 @@ Please share the best available packages, pricing, itinerary, and current offers
 
 Looking forward to hearing from your team.
 
-Thank you!`; 
+Thank you!`;
 
-const whatsappURL = 
-`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        const whatsappURL =
+            `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
-window.open(
-    whatsappURL,
-    "_blank"
-);
+        window.open(whatsappURL, "_blank");
+
     });
-
 
 }
 
 
-/*========================================
- HERO BUTTONS + INQUIRY FORM
-========================================*/
-
+/*========================================*
+* HERO BUTTONS + INQUIRY FORM
+*========================================*/
 
 // =======================================
 // SMOOTH SCROLL BUTTONS
 // =======================================
 
-
 const exploreBtn = document.querySelector(".tripz-explore-btn");
-
 const contactBtn = document.querySelector(".tripz-contact-btn");
 
 
+// =======================================
+// EXPLORE TOURS BUTTON
+// =======================================
 
-if(exploreBtn){
+if (exploreBtn) {
 
-
-    exploreBtn.addEventListener("click",(e)=>{
-
+    exploreBtn.addEventListener("click", (e) => {
 
         e.preventDefault();
 
+        // GA4 EVENT
+        if (typeof gtag === "function") {
+            gtag("event", "explore_tours_click", {
+                button_name: "Explore Tours",
+                button_location: "hero"
+            });
+        }
 
         document.querySelector("#packages")
-        .scrollIntoView({
-
-            behavior:"smooth"
-
-        });
-
+            .scrollIntoView({
+                behavior: "smooth"
+            });
 
     });
-
 
 }
 
 
+// =======================================
+// CONTACT US BUTTON
+// =======================================
 
-if(contactBtn){
+if (contactBtn) {
 
-
-    contactBtn.addEventListener("click",(e)=>{
-
+    contactBtn.addEventListener("click", (e) => {
 
         e.preventDefault();
 
+        // GA4 EVENT
+        if (typeof gtag === "function") {
+            gtag("event", "contact_us_click", {
+                button_name: "Contact Us",
+                button_location: "hero"
+            });
+        }
 
         document.querySelector("#contact")
-        .scrollIntoView({
-
-            behavior:"smooth"
-
-        });
-
+            .scrollIntoView({
+                behavior: "smooth"
+            });
 
     });
 
-
 }
-
-
 
 
 // =======================================
@@ -325,21 +325,52 @@ const scriptURL = "https://script.google.com/macros/s/AKfycbwJMtTqVu582pq11WtY2G
 
 const tripzForm = document.getElementById("tripzTravelForm");
 
+
 if (tripzForm) {
 
-    const submitBtn = tripzForm.querySelector(".tripz-inquiry-btn");
+    const submitBtn =
+        tripzForm.querySelector(".tripz-inquiry-btn");
+
 
     tripzForm.addEventListener("submit", (e) => {
 
         e.preventDefault();
 
-        const destination = tripzForm.querySelector("select[name='destination']").value;
-        const travellers = tripzForm.querySelector("select[name='travellers']").value;
-        const date = tripzForm.querySelector("input[name='date']").value;
-        const name = tripzForm.querySelector("input[name='name']").value.trim();
-        const mobile = tripzForm.querySelector("input[name='mobile']").value.trim();
 
+        const destination =
+            tripzForm.querySelector(
+                "select[name='destination']"
+            ).value;
+
+
+        const travellers =
+            tripzForm.querySelector(
+                "select[name='travellers']"
+            ).value;
+
+
+        const date =
+            tripzForm.querySelector(
+                "input[name='date']"
+            ).value;
+
+
+        const name =
+            tripzForm.querySelector(
+                "input[name='name']"
+            ).value.trim();
+
+
+        const mobile =
+            tripzForm.querySelector(
+                "input[name='mobile']"
+            ).value.trim();
+
+
+        // ===================================
         // VALIDATION
+        // ===================================
+
         if (
             destination === "" ||
             travellers === "" ||
@@ -347,70 +378,151 @@ if (tripzForm) {
             name === "" ||
             mobile === ""
         ) {
+
             Swal.fire({
                 icon: "warning",
                 title: "Incomplete Form",
                 text: "Please fill all details."
             });
+
             return;
         }
 
+
         if (!/^[0-9]{10}$/.test(mobile)) {
+
             Swal.fire({
                 icon: "warning",
                 title: "Invalid Mobile Number",
                 text: "Please enter a valid 10-digit mobile number."
             });
+
             return;
         }
 
-        // Button Loading
+
+        // ===================================
+        // BUTTON LOADING
+        // ===================================
+
         submitBtn.disabled = true;
+
         submitBtn.innerHTML = "Sending Inquiry...";
 
-        // SEND DATA
+
+        // ===================================
+        // SEND DATA TO GOOGLE SHEETS
+        // ===================================
+
         fetch(scriptURL, {
+
             method: "POST",
+
             body: JSON.stringify({
+
                 name: name,
+
                 contact: mobile,
+
                 travellers: travellers,
+
                 travelDate: date,
+
                 destination: destination
+
             })
+
         })
+
+
         .then((response) => response.json())
+
+
         .then((data) => {
+
+
+            // ===================================
+            // GA4 - SUCCESSFUL INQUIRY
+            // ===================================
+
+            if (typeof gtag === "function") {
+
+                gtag("event", "inquiry_submit", {
+
+                    form_name: "Hero Travel Inquiry",
+
+                    destination: destination,
+
+                    travellers: travellers
+
+                });
+
+            }
+
+
+            // ===================================
+            // RESET FORM
+            // ===================================
 
             tripzForm.reset();
 
+
             submitBtn.disabled = false;
+
             submitBtn.innerHTML = "Send Inquiry";
-Swal.fire({
-    icon: "success",
-    title: "Inquiry Sent!",
-    text: "Our travel expert will contact you shortly.",
-    width: "280px",
-    padding: "1rem",
-    timer: 2200,
-    showConfirmButton: false,
-    timerProgressBar: true
-});
+
+
+            // ===================================
+            // SUCCESS MESSAGE
+            // ===================================
+
+            Swal.fire({
+
+                icon: "success",
+
+                title: "Inquiry Sent!",
+
+                text: "Our travel expert will contact you shortly.",
+
+                width: "280px",
+
+                padding: "1rem",
+
+                timer: 2200,
+
+                showConfirmButton: false,
+
+                timerProgressBar: true
+
+            });
+
 
         })
+
+
         .catch((error) => {
+
 
             console.error(error);
 
+
             submitBtn.disabled = false;
+
             submitBtn.innerHTML = "Send Inquiry";
 
+
             Swal.fire({
+
                 icon: "error",
+
                 title: "Oops!",
+
                 text: "Something went wrong. Please try again.",
+
                 confirmButtonText: "OK"
+
             });
+
 
         });
 
@@ -428,16 +540,34 @@ DOMESTIC PACKAGE JAVASCRIPT
 BOOK NOW WHATSAPP
 ========================================== */
 
-const bookButtons = document.querySelectorAll(".book-btn-package");
+const bookButtons =
+document.querySelectorAll(".book-btn-package");
 
 
 bookButtons.forEach(button => {
 
-
     button.addEventListener("click", () => {
 
 
-        const packageName = button.dataset.package;
+        const packageName =
+            button.dataset.package;
+
+
+        // =====================================
+        // GA4 - PACKAGE BOOK NOW
+        // =====================================
+
+        if (typeof gtag === "function") {
+
+            gtag("event", "package_book_now", {
+
+                package_name: packageName,
+
+                button_location: "package_card"
+
+            });
+
+        }
 
 
         const message =
@@ -450,15 +580,15 @@ Thank you.`;
 
 
         const encodedMessage =
-        encodeURIComponent(message);
+            encodeURIComponent(message);
 
 
         const whatsappNumber =
-        "918398941172";
+            "918398941172";
 
 
         const whatsappURL =
-        `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
 
         window.open(
@@ -469,16 +599,13 @@ Thank you.`;
 
     });
 
-
 });
-
 
 
 
 /* ==========================================
 VIEW DETAILS POPUP
 ========================================== */
-
 
 const detailsButtons =
 document.querySelectorAll(".details-btn");
@@ -501,31 +628,46 @@ document.getElementById("modalOk");
 
 
 
-detailsButtons.forEach(button=>{
+detailsButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
 
 
-button.addEventListener("click",()=>{
+        const packageName =
+            button.dataset.package;
 
 
-const packageName =
-button.dataset.package;
+        // =====================================
+        // GA4 - VIEW PACKAGE DETAILS
+        // =====================================
+
+        if (typeof gtag === "function") {
+
+            gtag("event", "package_details_view", {
+
+                package_name: packageName,
+
+                button_location: "package_card"
+
+            });
+
+        }
 
 
-modalTitle.innerText =
-packageName;
+        modalTitle.innerText =
+            packageName;
 
 
-modal.classList.add("active");
+        modal.classList.add("active");
 
+
+    });
 
 });
 
 
-});
 
-
-
-function closeModal(){
+function closeModal() {
 
     modal.classList.remove("active");
 
@@ -534,163 +676,126 @@ function closeModal(){
 
 
 modalClose.addEventListener(
-"click",
-closeModal
+    "click",
+    closeModal
 );
 
 
 
 modalOk.addEventListener(
-"click",
-closeModal
+    "click",
+    closeModal
 );
 
 
 
 modal.addEventListener(
-"click",
-(e)=>{
+    "click",
+    (e) => {
+
+        if (e.target === modal) {
+
+            closeModal();
+
+        }
+
+    }
+);
 
 
-if(e.target === modal){
-
-    closeModal();
-
-}
-
-
-});
 
 /* ==========================================
 SCROLL REVEAL ANIMATION
 ========================================== */
-
 
 const cards =
 document.querySelectorAll(".reveal-card");
 
 
 
-if(cards.length){
-
+if (cards.length) {
 
     const observer =
-    new IntersectionObserver(
+        new IntersectionObserver(
+
+            (entries) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("show");
 
 
-        (entries) => {
+                        observer.unobserve(
+                            entry.target
+                        );
 
+                    }
 
-            entries.forEach(entry => {
+                });
 
+            },
 
-                if(entry.isIntersecting){
+            {
+                threshold: 0.2
+            }
 
-
-                    entry.target.classList.add("show");
-
-
-
-                    observer.unobserve(
-                        entry.target
-                    );
-
-
-                }
-
-
-            });
-
-
-        },
-
-
-        {
-            threshold:0.2
-        }
-
-
-    );
-
+        );
 
 
     cards.forEach(card => {
 
-
         observer.observe(card);
-
 
     });
 
-
 }
 
-
-
-/*=========================================
-INTERNATIONAL PACKAGES JS
-=========================================*/
-
+/*=========================================*
+* INTERNATIONAL PACKAGES JS
+*=========================================*/
 
 
 // =========================================
 // INTERNATIONAL PACKAGE REVEAL ANIMATION
 // =========================================
 
-
 const internationalCards = document.querySelectorAll(
     ".international-packages .reveal-card"
 );
 
 
-
 const internationalObserver = new IntersectionObserver(
 
-(entries)=>{
+    (entries) => {
 
+        entries.forEach((entry) => {
 
-    entries.forEach((entry)=>{
+            if (entry.isIntersecting) {
 
+                entry.target.classList.add("show");
 
-        if(entry.isIntersecting){
+                internationalObserver.unobserve(entry.target);
 
+            }
 
-            entry.target.classList.add("show");
+        });
 
+    },
 
-            internationalObserver.unobserve(entry.target);
-
-
-        }
-
-
-    });
-
-
-},
-
-{
-
-    threshold:0.15
-
-}
+    {
+        threshold: 0.15
+    }
 
 );
 
 
-
-
-internationalCards.forEach((card)=>{
-
+internationalCards.forEach((card) => {
 
     internationalObserver.observe(card);
 
-
 });
-
-
-
-
 
 
 
@@ -698,24 +803,40 @@ internationalCards.forEach((card)=>{
 // PACKAGE EXPLORE BUTTON
 // =========================================
 
-
 const internationalButtons = document.querySelectorAll(
     ".international-packages .explore-btn"
 );
 
 
+internationalButtons.forEach((button) => {
 
-internationalButtons.forEach((button)=>{
-
-
-    button.addEventListener("click",()=>{
+    button.addEventListener("click", () => {
 
 
-        const packageName = button.dataset.package;
+        const packageName =
+            button.dataset.package;
 
 
 
-        const message = 
+        // =====================================
+        // GA4 - INTERNATIONAL PACKAGE EXPLORE
+        // =====================================
+
+        if (typeof gtag === "function") {
+
+            gtag("event", "international_package_explore", {
+
+                package_name: packageName,
+
+                button_location: "international_package"
+
+            });
+
+        }
+
+
+
+        const message =
 `Hello TripZGeo Travel,
 
 I want details about ${packageName} package.
@@ -724,12 +845,13 @@ Please share complete itinerary, price and availability.`;
 
 
 
-        const whatsappNumber = "918398941172";
+        const whatsappNumber =
+            "918398941172";
 
 
 
-        const whatsappURL = 
-        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+        const whatsappURL =
+            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
 
 
@@ -741,12 +863,7 @@ Please share complete itinerary, price and availability.`;
 
     });
 
-
 });
-
-
-
-
 
 
 
@@ -754,17 +871,30 @@ Please share complete itinerary, price and availability.`;
 // EXPLORE ALL TOURS BUTTON
 // =========================================
 
-
 const allToursButton = document.querySelector(
     ".international-packages .explore-world-btn"
 );
 
 
+if (allToursButton) {
 
-if(allToursButton){
+    allToursButton.addEventListener("click", () => {
 
 
-    allToursButton.addEventListener("click",()=>{
+        // =====================================
+        // GA4 - EXPLORE ALL INTERNATIONAL TOURS
+        // =====================================
+
+        if (typeof gtag === "function") {
+
+            gtag("event", "international_all_tours_click", {
+
+                button_location: "international_packages"
+
+            });
+
+        }
+
 
 
         const message =
@@ -774,12 +904,13 @@ I want details about all international tour packages.`;
 
 
 
-        const whatsappNumber = "918398941172";
+        const whatsappNumber =
+            "918398941172";
 
 
 
         const whatsappURL =
-        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
 
 
@@ -791,9 +922,7 @@ I want details about all international tour packages.`;
 
     });
 
-
 }
-
 /*=========================================
 WHY CHOOSE TRIPZGEO SCROLL REVEAL
 =========================================*/
@@ -1037,27 +1166,53 @@ ctaContent.forEach((item)=>{
     ctaObserver.observe(item);
 
 });
+/*=========================================*
+* CONTACT FORM WHATSAPP MESSAGE
+*=========================================*/
 
-/*=========================================
-CONTACT FORM WHATSAPP MESSAGE
-=========================================*/
 
-const contactForm = document.getElementById("contactForm");
-const contactSubmitBtn = document.getElementById("contactSubmitBtn");
+const contactForm =
+    document.getElementById("contactForm");
+
+
+const contactSubmitBtn =
+    document.getElementById("contactSubmitBtn");
+
+
 
 if (contactForm) {
+
 
     contactForm.addEventListener("submit", function (e) {
 
         e.preventDefault();
 
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const phone = document.getElementById("phone").value.trim();
-        const destination = document.getElementById("destination").value.trim();
-        const message = document.getElementById("message").value.trim();
 
-        // Mobile Validation
+        const name =
+            document.getElementById("name").value.trim();
+
+
+        const email =
+            document.getElementById("email").value.trim();
+
+
+        const phone =
+            document.getElementById("phone").value.trim();
+
+
+        const destination =
+            document.getElementById("destination").value.trim();
+
+
+        const message =
+            document.getElementById("message").value.trim();
+
+
+
+        // =====================================
+        // MOBILE VALIDATION
+        // =====================================
+
         if (!/^[0-9]{10}$/.test(phone)) {
 
             Swal.fire({
@@ -1072,11 +1227,41 @@ if (contactForm) {
 
         }
 
-        // Button Loading
-        contactSubmitBtn.disabled = true;
-        contactSubmitBtn.innerHTML = "Sending...";
 
-        const whatsappNumber = "918398941172";
+
+        // =====================================
+        // GA4 - CONTACT FORM SUBMIT
+        // =====================================
+
+        if (typeof gtag === "function") {
+
+            gtag("event", "contact_form_submit", {
+
+                destination: destination,
+
+                form_location: "contact_section"
+
+            });
+
+        }
+
+
+
+        // =====================================
+        // BUTTON LOADING
+        // =====================================
+
+        contactSubmitBtn.disabled = true;
+
+        contactSubmitBtn.innerHTML =
+            "Sending...";
+
+
+
+        const whatsappNumber =
+            "918398941172";
+
+
 
         const whatsappMessage =
 `New Travel Inquiry - TripZGeo Travel
@@ -1086,19 +1271,41 @@ Email: ${email}
 Destination: ${destination}
 Message: ${message}`;
 
+
+
         const whatsappURL =
-`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
-        window.open(whatsappURL, "_blank");
 
-        // Reset Form
+
+        // =====================================
+        // OPEN WHATSAPP
+        // =====================================
+
+        window.open(
+            whatsappURL,
+            "_blank"
+        );
+
+
+
+        // =====================================
+        // RESET FORM
+        // =====================================
+
         contactForm.reset();
 
-        // Button Normal
-        contactSubmitBtn.disabled = false;
-        contactSubmitBtn.innerHTML = "Send Message";
 
-       
+
+        // =====================================
+        // BUTTON NORMAL
+        // =====================================
+
+        contactSubmitBtn.disabled = false;
+
+        contactSubmitBtn.innerHTML =
+            "Send Message";
+
 
     });
 
