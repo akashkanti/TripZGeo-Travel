@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tripzgeo-travel.vercel.app/sitemap.xml
