@@ -1181,7 +1181,13 @@ linear-gradient(
     rgba(0,0,0,0.45),
     rgba(0,0,0,0.45)
 ),
-url("../images/hero-mobile.png");
+url("../images/hero--mobile.png");
+
+
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+
 
     }
 
